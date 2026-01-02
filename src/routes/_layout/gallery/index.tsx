@@ -1,3 +1,6 @@
+import { GalleryList } from '@/components/screens/gallery'
+import { PageHeader } from '@/components/shared/page-header'
+import { Container } from '@/components/ui'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/gallery/')({
@@ -5,5 +8,15 @@ export const Route = createFileRoute('/_layout/gallery/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/_layout/gallery/"!</div>
+  return (
+    <>
+      <PageHeader
+        title="Галерея"
+        subtitle="Яркие моменты из жизни нашего центра"
+      />
+      <Container className="py-20">
+        <GalleryList />
+      </Container>
+    </>
+  )
 }
