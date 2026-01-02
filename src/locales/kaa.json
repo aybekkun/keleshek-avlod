@@ -1,0 +1,206 @@
+{
+  "task": {
+    "status": {
+      "title": "Тапсырма статусы",
+      "finished": "Тамамланған",
+      "in_progress": "Атқарылмақта"
+    },
+    "description": "Баянат",
+    "region": "Регион",
+    "select_region": "Регионды таңлаң",
+    "object": "Объект",
+    "select_object": "Объектти таңлаң",
+    "update": "Жаңалаў",
+    "save": "Сақлаў",
+    "create_task": "Тапсырма жаратыў"
+  },
+  "images": "Фото",
+  "program": {
+    "name": "Аты",
+    "description": "Баянат",
+    "update": "Жаңалаў",
+    "save": "Сақлаў"
+  },
+  "auth": {
+    "login_title": "Кириў",
+    "phone": "ТЕЛЕФОН",
+    "password": "ПАРОЛЬ",
+    "password_placeholder": "Пароль",
+    "sign_in": "Кириў"
+  },
+  "category": {
+    "categories": "Категориялар",
+    "name": "Аты",
+    "actions": "Ҳәрекетлер"
+  },
+  "date_range": {
+    "time": "Уақыт",
+    "from": "Ден",
+    "to": "Шеке",
+    "clear": "Тазалаў"
+  },
+  "error": "Қәте",
+  "map": {
+    "employees": "Хызметкерлер",
+    "show_hide_route": "Жолды көрсетиў/жасырыў",
+    "filters": "Фильтрлер",
+    "end_point": "Ақырғы ноқат",
+    "start_point": "Баслаўшы ноқат",
+    "contractor": "Подрадчик",
+    "region": "Регион",
+    "employee": "Хызметкер",
+    "number": "Сан",
+    "employee_list": "Хызметкерлер дизими",
+    "no_last_location": "Локация жоқ",
+    "open_in_google_maps": "Google карта"
+  },
+  "builder": {
+    "builders": "Қурылысшылар",
+    "name": "Аты",
+    "inn": "ИНН",
+    "phone": "Телефон",
+    "description": "Баянат",
+    "update": "Жаңалаў",
+    "save": "Сақлаў",
+    "actions": "Ҳәрекетлер"
+  },
+  "delete_button": {
+    "confirm_delete": "Ҳақыйқаттан да өширмекшисиз бе?",
+    "cancel": "Бийкарлаў",
+    "delete": "Өшириў",
+    "back": "Артқа"
+  },
+  "dashboard": {
+    "objects": "Объектлер",
+    "online_gps": "Онлайн GPS",
+    "assigned": "Белгиленген",
+    "completed": "Орынланған",
+    "not_completed": "Орынланбаған",
+    "task_statistics_title": "Тапсырмалардың орынланыў статистикасы",
+    "task_statistics_description": "Тапсырмалардың күнлер бойынша орынланыў процентин көрсетеди.",
+    "green": "Жасыл",
+    "yellow": "Сары",
+    "red": "Қызыл",
+    "employee": "Хызметкер",
+    "assigned_short": "Белгиленген",
+    "completed_short": "Орынланған",
+    "not_completed_short": "Орынланбаған",
+    "percent": "Процент",
+    "employee_header": "Хызметкер",
+    "tooltip_green": "Жасыл: 70-100% орынланған",
+    "tooltip_yellow": "Сары: 1-69% орынланған",
+    "tooltip_red": "Қызыл: 0% орынланған",
+    "tooltip_assigned": "Белгиленген: ",
+    "tooltip_completed": "Орынланған: ",
+    "tooltip_not_completed": "Орынланбаған: ",
+    "tooltip_percent": "Процент: "
+  },
+  "region": {
+    "regions": "Регионлар",
+    "name": "Аты",
+    "actions": "Ҳәрекетлер",
+    "update": "Жаңалаў",
+    "save": "Сақлаў"
+  },
+  "place": {
+    "time": "Уақыт",
+    "spent_amount": "Сарыпланған сумма",
+    "project_status": {
+      "title": "Проект статусы",
+      "finished": "Тамамланған",
+      "in_progress": "Атқарылмақта"
+    },
+    "address": "Мәнзил",
+    "description": "Баянат",
+    "radius": "Радиус",
+    "amount": "Обекттиң баҳасы",
+    "latitude": "Кеңлик",
+    "longitude": "Узақлық",
+    "accuracy": "Анықлық",
+    "employee": "Хызметкер",
+    "select_employee": "Хызметкерди таңлаң",
+    "category": "Категория",
+    "select_category": "Категорияны таңлаң",
+    "program": "Программа",
+    "select_program": "Программаны таңлаң",
+    "builder": "Қурылысшы",
+    "select_builder": "Қурылысшыны таңлаң",
+    "region": "Регион",
+    "select_region": "Регионды таңлаң",
+    "update": "Жаңалаў",
+    "save": "Сақлаў",
+    "places": "Объектлер",
+    "status": "Статус",
+    "in_progress": "Атқарылмақта",
+    "finished": "Тамамланған",
+    "actions": "Ҳәрекетлер",
+    "payments": "Қаржыландырыў",
+    "is_abizo": "Авизо",
+    "is_gos_akt": "Гос акт",
+    "contract_amount": "Обекттиң баҳасы",
+    "paid_amount": "Қаржыландырыў",
+    "percentage": "Процент төлеми",
+    "spent": "Қәрежетлер",
+    "total_spent_amount": "Орынлаўлар"
+  },
+  "add_button": "Қосыў",
+  "header": {
+    "logout": "Шығыў"
+  },
+  "program_actions": {
+    "programs": "Программалар",
+    "name": "Аты",
+    "description": "Баянат"
+  },
+  "form_drawer": {
+    "edit": "Өзгертиў",
+    "add": "Қосыў"
+  },
+  "task_actions": {
+    "tasks": "Тапсырмалар",
+    "status": "Статус",
+    "completed": "Тамамланған",
+    "in_process": "Атқарылмақта",
+    "description": "Баянат"
+  },
+  "employee": {
+    "name": "Аты",
+    "phone": "ТЕЛЕФОН",
+    "password": "ПАРОЛЬ",
+    "password_placeholder": "Өзгертиў ушын бос қалдырың",
+    "update": "Жаңалаў",
+    "save": "Сақлаў",
+    "employees": "Хызметкерлер",
+    "status": "Статус",
+    "actions": "Ҳәрекетлер"
+  },
+  "search_input": {
+    "placeholder": "Излеў"
+  },
+  "data_table": {
+    "page": "Бет",
+    "of": "ден"
+  },
+  "menu": {
+    "main": "Бас бет",
+    "map": "Карта",
+    "employees": "Хызметкерлер",
+    "objects": "Объектлер",
+    "tasks": "Тапсырмалар",
+    "builders": "Қурылысшылар",
+    "categories": "Категориялар",
+    "regions": "Регионлар",
+    "programs": "Программалар",
+    "monitoring": "Мониторинг",
+    "transactions": "Транзакциялар",
+    "finance": "Финанс",
+    "contracts": "Контрактлар",
+    "todos": "Ислер дизими"
+  },
+  "common": {
+    "update": "Жаңалаў",
+    "save": "Сақлаў"
+  },
+  "story": "Тарих",
+  "created_at": "Жаратылды"
+}

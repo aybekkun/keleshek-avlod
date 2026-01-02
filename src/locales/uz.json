@@ -1,0 +1,206 @@
+{
+  "task": {
+    "status": {
+      "title": "Статус задачи",
+      "finished": "Закончен",
+      "in_progress": "В процессе"
+    },
+    "description": "Описание",
+    "region": "Регион",
+    "select_region": "Выберите регион",
+    "object": "Объект",
+    "select_object": "Выберите объект",
+    "update": "Обновить",
+    "save": "Сохранить",
+    "create_task": "Создать задачу"
+  },
+  "images": "Фото",
+  "program": {
+    "name": "Название",
+    "description": "Описание",
+    "update": "Обновить",
+    "save": "Сохранить"
+  },
+  "auth": {
+    "login_title": "Логин",
+    "phone": "ТЕЛЕФОН",
+    "password": "ПАРОЛЬ",
+    "password_placeholder": "Пароль",
+    "sign_in": "Войти"
+  },
+  "category": {
+    "categories": "Категории",
+    "name": "Название",
+    "actions": "Действия"
+  },
+  "date_range": {
+    "time": "Время",
+    "from": "От",
+    "to": "До",
+    "clear": "Очистить"
+  },
+  "error": "Ошибка",
+  "map": {
+    "employees": "Сотрудники",
+    "show_hide_route": "Показать/скрыть маршрут",
+    "filters": "Фильтры",
+    "end_point": "Конечная точка",
+    "start_point": "Начальная точка",
+    "contractor": "Подрядчик",
+    "region": "Регион",
+    "employee": "Сотрудник",
+    "number": "Номер",
+    "employee_list": "Список сотрудников",
+    "no_last_location": " Нет последней локации ",
+    "open_in_google_maps": "Открыть в Google картах"
+  },
+  "builder": {
+    "builders": "Подрядная организация",
+    "name": "Название",
+    "inn": "ИНН",
+    "phone": "Телефон",
+    "description": "Описание",
+    "update": "Обновить",
+    "save": "Сохранить",
+    "actions": "Действия"
+  },
+  "delete_button": {
+    "confirm_delete": "Действительно хотите удалить?",
+    "cancel": "Отменить",
+    "delete": "Удалить",
+    "back": "Назад"
+  },
+  "dashboard": {
+    "objects": "Объекты",
+    "online_gps": "Онлайн GPS",
+    "assigned": "Назначено",
+    "completed": "Выполнено",
+    "not_completed": "Не выполнено",
+    "task_statistics_title": "Статистика выполнения заданий",
+    "task_statistics_description": "Показывает процент выполнения заданий по дням.",
+    "green": "Зеленый",
+    "yellow": "Желтый",
+    "red": "Красный",
+    "employee": "Сотрудник",
+    "assigned_short": "Назначено",
+    "completed_short": "Выполнено",
+    "not_completed_short": "Не выполнено",
+    "percent": "Процент",
+    "employee_header": "Сотрудник",
+    "tooltip_green": "Зеленый: 70-100% выполнено",
+    "tooltip_yellow": "Желтый: 1-69% выполнено",
+    "tooltip_red": "Красный: 0% выполнено",
+    "tooltip_assigned": "Назначено: ",
+    "tooltip_completed": "Выполнено: ",
+    "tooltip_not_completed": "Не выполнено: ",
+    "tooltip_percent": "Процент: "
+  },
+  "region": {
+    "regions": "Регионы",
+    "name": "Название",
+    "actions": "Действия",
+    "update": "Обновить",
+    "save": "Сохранить"
+  },
+  "place": {
+    "time": "Срок",
+    "spent_amount": "Потраченная сумма",
+    "project_status": {
+      "title": "Статус проекта",
+      "finished": "Закончен",
+      "in_progress": "В процессе"
+    },
+    "address": "Адрес",
+    "description": "Описание",
+    "radius": "Радиус",
+    "amount": "Стоимость объекта",
+    "latitude": "Широта",
+    "longitude": "Долгота",
+    "accuracy": "Точность",
+    "employee": "Сотрудник",
+    "select_employee": "Выберите сотрудника",
+    "category": "Категория",
+    "select_category": "Выберите категорию",
+    "program": "Программа",
+    "select_program": "Выберите программу",
+    "builder": "Подрядная организация",
+    "select_builder": "Выберите подрядную организацию",
+    "region": "Регион",
+    "select_region": "Выберите регион",
+    "update": "Обновить",
+    "save": "Сохранить",
+    "places": "Объекты",
+    "status": "Статус",
+    "in_progress": "В процессе",
+    "finished": "Закончен",
+    "actions": "Действия",
+    "payments": "Финансирование",
+    "is_abizo": "Авизо",
+    "is_gos_akt": "Гос. акт",
+    "contract_amount": "Стоимость объекта",
+    "paid_amount": "Финансирование",
+    "percentage": "Процент оплаты",
+    "spent": "Траты",
+    "total_spent_amount": "Выполнения"
+  },
+  "add_button": "Добавить",
+  "header": {
+    "logout": "Выйти"
+  },
+  "program_actions": {
+    "programs": "Программы",
+    "name": "Название",
+    "description": "Описание"
+  },
+  "form_drawer": {
+    "edit": "Изменить",
+    "add": "Добавить"
+  },
+  "task_actions": {
+    "tasks": "Задачи",
+    "status": "Статус",
+    "completed": "Завершен",
+    "in_process": "В процессе",
+    "description": "Описание"
+  },
+  "employee": {
+    "name": "Имя",
+    "phone": "ТЕЛЕФОН",
+    "password": "ПАРОЛЬ",
+    "password_placeholder": "Оставьте пустым, чтобы не менять",
+    "update": "Обновить",
+    "save": "Сохранить",
+    "employees": "Сотрудники",
+    "status": "Статус",
+    "actions": "Действия"
+  },
+  "search_input": {
+    "placeholder": "Поиск по"
+  },
+  "data_table": {
+    "page": "Страница",
+    "of": "из"
+  },
+  "menu": {
+    "main": "Главная",
+    "map": "Карта",
+    "employees": "Сотрудники",
+    "objects": "Объекты",
+    "tasks": "Задачи",
+    "builders": "Подрядная организация",
+    "categories": "Категории",
+    "regions": "Регионы",
+    "programs": "Программы",
+    "monitoring": "Мониторинг",
+    "transactions": "Транзакции",
+    "finance": "Финансы",
+    "contracts": "Контракты",
+    "todos": "Список дел"
+  },
+  "common": {
+    "update": "Обновить",
+    "save": "Сохранить"
+  },
+  "story": "История",
+  "created_at": "Создано"
+}
