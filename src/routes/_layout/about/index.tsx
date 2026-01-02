@@ -1,3 +1,4 @@
+import { AboutSection } from '@/components/screens/about'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/about/')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/_layout/about/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/_layout/about/"!</div>
+  return <AboutSection />
 }

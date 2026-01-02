@@ -1,3 +1,4 @@
+import { ContactSection } from '@/components/screens/contact'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/contact/')({
@@ -5,5 +6,5 @@ export const Route = createFileRoute('/_layout/contact/')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/_layout/contact/"!</div>
+  return <ContactSection />
 }
