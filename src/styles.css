@@ -9,7 +9,7 @@ body {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-base;
+
 }
 
 code {
@@ -203,4 +203,9 @@ code {
 
 .animation-delay-400 {
   animation-delay: 0.4s;
+}
+
+
+.title {
+  @apply text-2xl md:text-4xl font-extrabold text-slate-900;
 }

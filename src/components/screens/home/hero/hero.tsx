@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui'
 import { Container } from '@/components/ui/container'
-import { DottedMap } from '@/components/ui/dotted-map'
+/* import { DottedMap } from '@/components/ui/dotted-map' */
+import { YoutubeBackground } from '@/components/ui/youtube-background'
 import { cn } from '@/lib/utils'
 
 type Props = {
@@ -15,17 +16,29 @@ export const Hero = ({ className = `` }: Props) => {
         className,
       )}
     >
+      {/* YouTube Video Background (optional) */}
+
+      <YoutubeBackground
+        videoUrl={'https://www.youtube.com/watch?v=ruH9ZvmNaM0'}
+        className="opacity-90"
+      />
+
+      {/* Dark overlay for better text readability */}
+
+      <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-[2px]" />
+
       {/* Animated Dotted Map Background */}
-      <div className="absolute inset-0 opacity-30">
+      {/*    <div className="absolute inset-0 opacity-10">
         <DottedMap
           width={200}
           height={100}
           mapSamples={8000}
           dotRadius={0.45}
-          className="w-full h-full text-white animate-pulse-slow"
+          dotColor="white"
+          className="w-full h-full text-white"
         />
       </div>
-
+ */}
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-linear-to-t from-blue-900/50 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-linear-to-r from-blue-900/30 via-transparent to-indigo-900/30" />

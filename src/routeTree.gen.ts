@@ -18,6 +18,9 @@ import { Route as LayoutEventsIndexRouteImport } from './routes/_layout/events/i
 import { Route as LayoutContactIndexRouteImport } from './routes/_layout/contact/index'
 import { Route as LayoutClubsIndexRouteImport } from './routes/_layout/clubs/index'
 import { Route as LayoutAboutIndexRouteImport } from './routes/_layout/about/index'
+import { Route as LayoutNewsIdRouteImport } from './routes/_layout/news/$id'
+import { Route as LayoutEventsIdRouteImport } from './routes/_layout/events/$id'
+import { Route as LayoutClubsIdRouteImport } from './routes/_layout/clubs/$id'
 
 const LayoutRoute = LayoutRouteImport.update({
   id: '/_layout',
@@ -63,9 +66,27 @@ const LayoutAboutIndexRoute = LayoutAboutIndexRouteImport.update({
   path: '/about/',
   getParentRoute: () => LayoutRoute,
 } as any)
+const LayoutNewsIdRoute = LayoutNewsIdRouteImport.update({
+  id: '/news/$id',
+  path: '/news/$id',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutEventsIdRoute = LayoutEventsIdRouteImport.update({
+  id: '/events/$id',
+  path: '/events/$id',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutClubsIdRoute = LayoutClubsIdRouteImport.update({
+  id: '/clubs/$id',
+  path: '/clubs/$id',
+  getParentRoute: () => LayoutRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof LayoutIndexRoute
+  '/clubs/$id': typeof LayoutClubsIdRoute
+  '/events/$id': typeof LayoutEventsIdRoute
+  '/news/$id': typeof LayoutNewsIdRoute
   '/about': typeof LayoutAboutIndexRoute
   '/clubs': typeof LayoutClubsIndexRoute
   '/contact': typeof LayoutContactIndexRoute
@@ -76,6 +97,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof LayoutIndexRoute
+  '/clubs/$id': typeof LayoutClubsIdRoute
+  '/events/$id': typeof LayoutEventsIdRoute
+  '/news/$id': typeof LayoutNewsIdRoute
   '/about': typeof LayoutAboutIndexRoute
   '/clubs': typeof LayoutClubsIndexRoute
   '/contact': typeof LayoutContactIndexRoute
@@ -88,6 +112,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_layout': typeof LayoutRouteWithChildren
   '/_layout/': typeof LayoutIndexRoute
+  '/_layout/clubs/$id': typeof LayoutClubsIdRoute
+  '/_layout/events/$id': typeof LayoutEventsIdRoute
+  '/_layout/news/$id': typeof LayoutNewsIdRoute
   '/_layout/about/': typeof LayoutAboutIndexRoute
   '/_layout/clubs/': typeof LayoutClubsIndexRoute
   '/_layout/contact/': typeof LayoutContactIndexRoute
@@ -100,6 +127,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/clubs/$id'
+    | '/events/$id'
+    | '/news/$id'
     | '/about'
     | '/clubs'
     | '/contact'
@@ -110,6 +140,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/clubs/$id'
+    | '/events/$id'
+    | '/news/$id'
     | '/about'
     | '/clubs'
     | '/contact'
@@ -121,6 +154,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_layout'
     | '/_layout/'
+    | '/_layout/clubs/$id'
+    | '/_layout/events/$id'
+    | '/_layout/news/$id'
     | '/_layout/about/'
     | '/_layout/clubs/'
     | '/_layout/contact/'
@@ -199,11 +235,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutAboutIndexRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/_layout/news/$id': {
+      id: '/_layout/news/$id'
+      path: '/news/$id'
+      fullPath: '/news/$id'
+      preLoaderRoute: typeof LayoutNewsIdRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/events/$id': {
+      id: '/_layout/events/$id'
+      path: '/events/$id'
+      fullPath: '/events/$id'
+      preLoaderRoute: typeof LayoutEventsIdRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/clubs/$id': {
+      id: '/_layout/clubs/$id'
+      path: '/clubs/$id'
+      fullPath: '/clubs/$id'
+      preLoaderRoute: typeof LayoutClubsIdRouteImport
+      parentRoute: typeof LayoutRoute
+    }
   }
 }
 
 interface LayoutRouteChildren {
   LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutClubsIdRoute: typeof LayoutClubsIdRoute
+  LayoutEventsIdRoute: typeof LayoutEventsIdRoute
+  LayoutNewsIdRoute: typeof LayoutNewsIdRoute
   LayoutAboutIndexRoute: typeof LayoutAboutIndexRoute
   LayoutClubsIndexRoute: typeof LayoutClubsIndexRoute
   LayoutContactIndexRoute: typeof LayoutContactIndexRoute
@@ -215,6 +275,9 @@ interface LayoutRouteChildren {
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutIndexRoute: LayoutIndexRoute,
+  LayoutClubsIdRoute: LayoutClubsIdRoute,
+  LayoutEventsIdRoute: LayoutEventsIdRoute,
+  LayoutNewsIdRoute: LayoutNewsIdRoute,
   LayoutAboutIndexRoute: LayoutAboutIndexRoute,
   LayoutClubsIndexRoute: LayoutClubsIndexRoute,
   LayoutContactIndexRoute: LayoutContactIndexRoute,
