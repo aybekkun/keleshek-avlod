@@ -2,7 +2,8 @@ import { Explore } from '@/components/shared/explore'
 import { SectionHeader } from '@/components/shared/section-header'
 import { Container } from '@/components/ui/container'
 import { cn } from '@/lib/utils'
-import { EventCard, type IEvent } from '../event-card/event-card'
+import { EventCard } from '../event-card/event-card'
+import type { IEvent } from '@/services/events'
 
 const EVENTS: IEvent[] = [
   {

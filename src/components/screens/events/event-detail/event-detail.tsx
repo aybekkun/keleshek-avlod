@@ -1,24 +1,13 @@
 import { Button, Container } from '@/components/ui'
-import { MOCK_EVENTS, type IEvent } from '@/services/events'
+import { type IEvent } from '@/services/events'
 import { Link } from '@tanstack/react-router'
-import {
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  Clock,
-  MapPin,
-  Share2,
-} from 'lucide-react'
+import { Calendar, ChevronLeft, Clock, MapPin, Share2 } from 'lucide-react'
 
 interface EventDetailProps {
   event: IEvent
 }
 
 export const EventDetail = ({ event }: EventDetailProps) => {
-  const upcomingEvents = MOCK_EVENTS.filter(
-    (item) => item.id !== event.id,
-  ).slice(0, 3)
-
   return (
     <article className="bg-white pb-20 pt-10">
       <Container>
