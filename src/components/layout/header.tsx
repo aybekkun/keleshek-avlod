@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from '../ui'
 import { Logo } from './logo'
+import { MobileMenu } from './mobile-menu'
 type Props = {
   className?: string
 }
@@ -35,10 +36,10 @@ export const Header = ({ className = `` }: Props) => {
 
   return (
     <header className={cn('bg-white border-b sticky top-0 z-50', className)}>
-      <Container className="h-16 flex items-center ">
-        <Logo />
-        <div className="flex items-center gap-2 justify-end flex-1">
-          <nav className="flex items-center gap-2">
+      <Container className="h-16 flex items-center justify-between">
+        <div className="flex items-center flex-1 gap-8">
+          <Logo />
+          <nav className="hidden xl:flex flex-1 items-center justify-end  gap-1">
             {navLinks.map((link) => (
               <Link
                 activeProps={{
@@ -46,20 +47,23 @@ export const Header = ({ className = `` }: Props) => {
                 }}
                 key={link.path}
                 to={link.path}
-                className={`transition-colors duration-200 text-base inline-block p-2`}
+                className={`transition-colors duration-200 text-base inline-block p-2 hover:text-blue-600`}
               >
                 {link.name}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-slate-400" />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mr-2">
+            <Globe className="w-4 h-4 text-slate-400 hidden sm:block" />
             <Select
               defaultValue={i18n.language}
               onValueChange={(value) => i18n.changeLanguage(value)}
             >
-              <SelectTrigger className="w-20">
-                <SelectValue placeholder="Select a language" />
+              <SelectTrigger className="w-17.5 h-9">
+                <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
                 {languages.map((language) => (
@@ -70,6 +74,7 @@ export const Header = ({ className = `` }: Props) => {
               </SelectContent>
             </Select>
           </div>
+          <MobileMenu navLinks={navLinks} />
         </div>
       </Container>
     </header>
