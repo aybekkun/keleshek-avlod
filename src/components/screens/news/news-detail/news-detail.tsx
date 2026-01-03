@@ -2,7 +2,7 @@ import { Container } from '@/components/ui'
 import type { INews } from '@/services/news'
 import { MOCK_NEWS } from '@/services/news'
 import { Link } from '@tanstack/react-router'
-import { ArrowRight, Calendar, ChevronLeft, Tag } from 'lucide-react'
+import { ArrowRight, Calendar, ChevronLeft } from 'lucide-react'
 
 interface NewsDetailProps {
   news: INews
@@ -12,7 +12,7 @@ export const NewsDetail = ({ news }: NewsDetailProps) => {
   const otherNews = MOCK_NEWS.filter((item) => item.id !== news.id).slice(0, 3)
 
   return (
-    <article className="min-h-screen bg-white pb-20 pt-10">
+    <article className="bg-white pb-20 pt-10">
       <Container>
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Main Content Area */}
@@ -48,7 +48,7 @@ export const NewsDetail = ({ news }: NewsDetailProps) => {
               </h1>
             </div>
 
-            <div className="max-w-none prose prose-lg prose-slate h-full">
+            <div className="max-w-none prose prose-lg prose-slate">
               <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed mb-10 border-l-4 border-blue-600 pl-6 py-2 italic font-serif">
                 {news.excerpt}
               </p>
@@ -85,17 +85,6 @@ export const NewsDetail = ({ news }: NewsDetailProps) => {
             </div>
 
             {/* Tags */}
-            <div className="mt-16 pt-8 border-t border-slate-100 flex flex-wrap items-center gap-3">
-              <Tag className="w-5 h-5 text-slate-400 mr-2" />
-              {['образование', 'it', 'будущее'].map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg uppercase tracking-wider"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
           </div>
 
           {/* Sidebar Area */}

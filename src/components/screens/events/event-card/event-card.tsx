@@ -3,14 +3,7 @@ import { cn } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
 import { Clock, MapPin } from 'lucide-react'
 
-export interface IEvent {
-  id: string
-  date: string
-  time: string
-  title: string
-  type: string
-  location?: string
-}
+import { type IEvent } from '@/services/events'
 
 type Props = {
   event: IEvent

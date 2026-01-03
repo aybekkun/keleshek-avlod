@@ -8,15 +8,7 @@ import { cn } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
 import { Clock, User } from 'lucide-react'
 
-export interface IClub {
-  id: string
-  title: string
-  description: string
-  ageRange: string
-  schedule: string
-  imageUrl: string
-  slug: string
-}
+import { type IClub } from '@/services/clubs'
 
 type Props = {
   club: IClub

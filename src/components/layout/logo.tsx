@@ -10,7 +10,7 @@ export const Logo = ({ className = `` }: Props) => {
     <Link
       to="/"
       className={cn(
-        'text-2xl font-extrabold text-violet-500 flex items-center gap-2 tracking-tight h-10 ',
+        'text-base uppercase md:text-xl lg:text-2xl font-extrabold text-violet-500 flex items-center gap-2 tracking-tight h-10 ',
         className,
       )}
     >
