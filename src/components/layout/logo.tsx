@@ -10,11 +10,16 @@ export const Logo = ({ className = `` }: Props) => {
     <Link
       to="/"
       className={cn(
-        'text-2xl font-extrabold text-blue-600 tracking-tight',
+        'text-2xl font-extrabold text-violet-500 flex items-center gap-2 tracking-tight h-10 ',
         className,
       )}
     >
-      Keleshek.uz
+      <img
+        src="/logo192.png"
+        alt="Logo"
+        className="w-10 aspect-square object-cover"
+      />
+      KELESHEK ORAYI
     </Link>
   )
 }
