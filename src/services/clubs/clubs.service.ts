@@ -4,7 +4,7 @@ import type {
   IResponseData,
   IResponseSingleData,
 } from '../service.types'
-import type { IClub, IClubForm } from './clubs.types'
+import type { IClub } from './clubs.types'
 
 export const ClubsService = {
   getAll: async (params: IParams) => {
@@ -15,37 +15,6 @@ export const ClubsService = {
   },
   getById: async (id: number | string) => {
     const res = await $authApi.get<IResponseSingleData<IClub>>(`/clubs/${id}`)
-    return res.data
-  },
-  create: async (formData: IClubForm | FormData) => {
-    const res = await $authApi.post<IResponseSingleData<IClub>>(
-      '/clubs',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      },
-    )
-    return res.data
-  },
-  update: async (formData: {
-    id: number | string
-    form: IClubForm | FormData
-  }) => {
-    const res = await $authApi.put<IResponseSingleData<IClub>>(
-      `/clubs/${formData.id}`,
-      formData.form,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      },
-    )
-    return res.data
-  },
-  delete: async (id: string | number) => {
-    const res = await $authApi.delete(`/clubs/${id}`)
     return res.data
   },
 }
