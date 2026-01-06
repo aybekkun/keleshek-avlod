@@ -30,6 +30,7 @@ const languages = [
   { code: 'kaa', label: 'kaa' },
   { code: 'ru', label: 'ru' },
   { code: 'uz', label: 'uz' },
+  { code: 'en', label: 'en' },
 ]
 export const Header = ({ className = `` }: Props) => {
   const { i18n } = useTranslation()

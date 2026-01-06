@@ -10,7 +10,7 @@ const $authHost = axios.create({
   baseURL: _API_KEY,
 })
  */
-const $api = axios.create({
+const $authApi = axios.create({
   baseURL: _API_KEY,
 })
 
@@ -22,7 +22,7 @@ const $api = axios.create({
   return config
 })
  */
-$api.interceptors.request.use((config) => {
+$authApi.interceptors.request.use((config) => {
   const currentLanguage =
     (localStorage.getItem('lang') ?? 'kaa').split('-')[0] || 'kaa'
 
@@ -31,4 +31,4 @@ $api.interceptors.request.use((config) => {
   return config
 })
 
-export { $api }
+export { $authApi }

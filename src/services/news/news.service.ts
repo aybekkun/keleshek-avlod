@@ -4,22 +4,22 @@ import type {
   IResponseData,
   IResponseSingleData,
 } from '../service.types'
-import type { IClub, IClubForm } from './clubs.types'
+import type { INews, INewsForm } from './news.types'
 
-export const ClubsService = {
+export const NewsService = {
   getAll: async (params: IParams) => {
-    const res = await $authApi.get<IResponseData<IClub>>('/clubs', {
+    const res = await $authApi.get<IResponseData<INews>>('/news', {
       params,
     })
     return res.data
   },
   getById: async (id: number | string) => {
-    const res = await $authApi.get<IResponseSingleData<IClub>>(`/clubs/${id}`)
+    const res = await $authApi.get<IResponseSingleData<INews>>(`/news/${id}`)
     return res.data
   },
-  create: async (formData: IClubForm | FormData) => {
-    const res = await $authApi.post<IResponseSingleData<IClub>>(
-      '/clubs',
+  create: async (formData: INewsForm | FormData) => {
+    const res = await $authApi.post<IResponseSingleData<INews>>(
+      '/news',
       formData,
       {
         headers: {
@@ -31,10 +31,10 @@ export const ClubsService = {
   },
   update: async (formData: {
     id: number | string
-    form: IClubForm | FormData
+    form: INewsForm | FormData
   }) => {
-    const res = await $authApi.put<IResponseSingleData<IClub>>(
-      `/clubs/${formData.id}`,
+    const res = await $authApi.put<IResponseSingleData<INews>>(
+      `/news/${formData.id}`,
       formData.form,
       {
         headers: {
@@ -45,7 +45,7 @@ export const ClubsService = {
     return res.data
   },
   delete: async (id: string | number) => {
-    const res = await $authApi.delete(`/clubs/${id}`)
+    const res = await $authApi.delete(`/news/${id}`)
     return res.data
   },
 }
