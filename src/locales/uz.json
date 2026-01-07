@@ -137,6 +137,15 @@
     "toggle_menu": "Menyuni ochish",
     "share": "Ulashish",
     "copy_link": "Havolani nusxalash",
-    "copied": "Nusxalandi!"
+    "copied": "Nusxalandi!",
+    "days": {
+      "1": "Du",
+      "2": "Se",
+      "3": "Cho",
+      "4": "Pa",
+      "5": "Ju",
+      "6": "Sha",
+      "7": "Ya"
+    }
   }
 }

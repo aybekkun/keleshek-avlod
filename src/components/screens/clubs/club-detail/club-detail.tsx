@@ -95,7 +95,9 @@ export const ClubDetail = ({ data }: ClubDetailProps) => {
                         {t('clubs.schedule')}
                       </p>
                       <p className="font-bold text-slate-900">
-                        {data?.days.join(', ')}
+                        {data?.days
+                          .map((day) => t(`common.days.${day}`))
+                          .join(', ')}
                       </p>
                     </div>
                   </div>

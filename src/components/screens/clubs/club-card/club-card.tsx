@@ -67,7 +67,7 @@ export const ClubCard = ({ club, className }: Props) => {
                 {t('clubs.schedule')}
               </span>
               <span className="text-sm font-bold text-slate-700">
-                {club.days.join(', ')}
+                {club.days.map((day) => t(`common.days.${day}`)).join(', ')}
               </span>
             </div>
           </div>

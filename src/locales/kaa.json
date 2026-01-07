@@ -137,6 +137,15 @@
     "toggle_menu": "Menyunu ashıw",
     "share": "Úlesiw",
     "copy_link": "Siltemeni nusqalaw",
-    "copied": "Nusqalandı!"
+    "copied": "Nusqalandı!",
+    "days": {
+      "1": "Dú",
+      "2": "Se",
+      "3": "Shr",
+      "4": "Pa",
+      "5": "Ju",
+      "6": "Shm",
+      "7": "Yek"
+    }
   }
 }
