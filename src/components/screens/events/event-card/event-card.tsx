@@ -4,7 +4,7 @@ import { Link } from '@tanstack/react-router'
 import { Clock, MapPin } from 'lucide-react'
 
 import type { IEvent } from '@/services/events'
-
+import dayjs from 'dayjs'
 type Props = {
   event: IEvent
   index: number
@@ -12,6 +12,7 @@ type Props = {
 }
 
 export const EventCard = ({ event, index, className }: Props) => {
+  const date = dayjs(event.date).format('DD.MM.YYYY')
   return (
     <div
       className={cn(
@@ -26,16 +27,16 @@ export const EventCard = ({ event, index, className }: Props) => {
       {/* Date Column */}
       <div className="flex flex-col items-center md:items-start min-w-35 relative z-10">
         <span className="text-4xl md:text-5xl font-black text-primary leading-none mb-1 group-hover:scale-110 transition-transform duration-500 origin-left">
-          {event.date.split('.')[0]}
+          {date.split('.')[0]}
         </span>
         <div className="flex flex-col items-center md:items-start">
           <span className="text-sm font-extrabold text-slate-800 uppercase tracking-widest">
-            {event.date.split('.').slice(1).join('.')}
+            {date.split('.').slice(1).join('.')}
           </span>
           <div className="flex items-center gap-2 text-slate-400 mt-2">
             <Clock className="w-3.5 h-3.5" />
             <span className="text-xs font-semibold tabular-nums">
-              {event.time}
+              {event.from_time} - {event.to_time}
             </span>
           </div>
         </div>
@@ -51,7 +52,7 @@ export const EventCard = ({ event, index, className }: Props) => {
         </h3>
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
           <span className="inline-flex items-center px-3 py-1 bg-slate-50 text-slate-500 text-xs font-bold rounded-full border border-slate-100 uppercase tracking-tighter">
-            {event.type}
+            {event.sub_title}
           </span>
           {event.location && (
             <div className="flex items-center gap-1.5 text-slate-400">
@@ -69,7 +70,7 @@ export const EventCard = ({ event, index, className }: Props) => {
           className="w-full md:w-auto border-primary/10 text-primary hover:bg-primary hover:border-primary hover:text-white rounded-2xl py-7 px-10 transition-all duration-300 font-black text-sm uppercase tracking-widest shadow-sm hover:shadow-primary/20"
           asChild
         >
-          <Link to={`/events/$id`} params={{ id: event.id }}>
+          <Link to={`/events/$id`} params={{ id: String(event.id) }}>
             View more
           </Link>
         </Button>

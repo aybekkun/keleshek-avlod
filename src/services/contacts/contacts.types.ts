@@ -6,3 +6,9 @@ export interface IContact {
   lat: string
   long: string
 }
+
+export interface IMessageForm {
+  name: string
+  phone: string
+  message: string
+}

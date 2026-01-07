@@ -2,12 +2,12 @@ import { Button, Container } from '@/components/ui'
 import { type IClub } from '@/services/clubs'
 import { Link } from '@tanstack/react-router'
 import { ChevronLeft, Clock, Share2, Users } from 'lucide-react'
-
+import parse from 'html-react-parser'
 interface ClubDetailProps {
-  club: IClub
+  data: IClub
 }
 
-export const ClubDetail = ({ club }: ClubDetailProps) => {
+export const ClubDetail = ({ data }: ClubDetailProps) => {
   return (
     <article className=" bg-white pb-20 pt-10">
       <Container>
@@ -24,14 +24,14 @@ export const ClubDetail = ({ club }: ClubDetailProps) => {
 
             <div className="relative aspect-video w-full overflow-hidden rounded-[40px] shadow-2xl shadow-slate-200 mb-12 group">
               <img
-                src={club.imageUrl}
-                alt={club.title}
+                src={data.image || ''}
+                alt={data.title}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              {club.category && (
+              {data.title && (
                 <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-6 py-2 rounded-2xl shadow-lg border border-primary/10">
                   <span className="text-xs font-black text-primary uppercase tracking-widest">
-                    {club.category}
+                    {data.title}
                   </span>
                 </div>
               )}
@@ -39,17 +39,14 @@ export const ClubDetail = ({ club }: ClubDetailProps) => {
 
             <div className="space-y-6 mb-10">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
-                {club.title}
+                {data.title}
               </h1>
             </div>
 
             <div className="max-w-none prose prose-lg prose-slate">
-              <div
-                className="space-y-6 text-slate-600 leading-relaxed text-lg"
-                dangerouslySetInnerHTML={{
-                  __html: club.fullDescription || club.description,
-                }}
-              />
+              <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
+                {parse(data.content || '')}
+              </div>
             </div>
 
             {/* Share Section */}
@@ -88,9 +85,7 @@ export const ClubDetail = ({ club }: ClubDetailProps) => {
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                         Возраст
                       </p>
-                      <p className="font-bold text-slate-900">
-                        {club.ageRange}
-                      </p>
+                      <p className="font-bold text-slate-900">{data.age}</p>
                     </div>
                   </div>
 
@@ -102,9 +97,7 @@ export const ClubDetail = ({ club }: ClubDetailProps) => {
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                         Расписание
                       </p>
-                      <p className="font-bold text-slate-900">
-                        {club.schedule}
-                      </p>
+                      <p className="font-bold text-slate-900">{data.days}</p>
                     </div>
                   </div>
                 </div>

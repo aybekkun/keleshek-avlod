@@ -3,12 +3,18 @@ import { Container } from '@/components/ui/container'
 /* import { DottedMap } from '@/components/ui/dotted-map' */
 import { YoutubeBackground } from '@/components/ui/youtube-background'
 import { cn } from '@/lib/utils'
+import { useBanner } from '@/services/banners'
+import { Link } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   className?: string
 }
 
 export const Hero = ({ className = `` }: Props) => {
+  const { data } = useBanner()
+  const { t } = useTranslation()
+
   return (
     <section
       className={cn(
@@ -19,7 +25,7 @@ export const Hero = ({ className = `` }: Props) => {
       {/* YouTube Video Background (optional) */}
 
       <YoutubeBackground
-        videoUrl={'https://www.youtube.com/watch?v=ruH9ZvmNaM0'}
+        videoUrl={data?.data?.url || ''}
         className="opacity-90"
       />
 
@@ -54,29 +60,30 @@ export const Hero = ({ className = `` }: Props) => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 animate-fade-in-up">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             <span className="text-sm font-medium text-white">
-              Новое поколение образования
+              {t('hero.badge')}
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight text-white animate-fade-in-up animation-delay-100">
-            Образование Будущего для{' '}
+            {t('hero.title_part1')}
             <span className="bg-linear-to-r from-blue-200 via-white to-indigo-200 bg-clip-text text-transparent">
-              Ваших Детей
+              {t('hero.title_part2')}
             </span>
           </h1>
 
           {/* Description */}
           <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl leading-relaxed animate-fade-in-up animation-delay-200">
-            Мы создаем среду, где каждый ребенок раскрывает свой потенциал через
-            творчество, науку и спорт.
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-300">
-            <Button size="lg">Начать обучение</Button>
-            <Button size="lg" variant="outline">
-              Узнать больше
+            <Button size="lg" asChild>
+              <Link to="/clubs">{t('hero.start_learning')}</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/about">{t('hero.learn_more')}</Link>
             </Button>
           </div>
 
@@ -86,21 +93,25 @@ export const Hero = ({ className = `` }: Props) => {
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">
                 1000+
               </div>
-              <div className="text-sm md:text-base text-blue-200">Учеников</div>
+              <div className="text-sm md:text-base text-blue-200">
+                {t('hero.stats.students')}
+              </div>
             </div>
             <div className="text-center sm:text-left">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">
                 50+
               </div>
               <div className="text-sm md:text-base text-blue-200">
-                Преподавателей
+                {t('hero.stats.teachers')}
               </div>
             </div>
             <div className="text-center sm:text-left">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">
                 15+
               </div>
-              <div className="text-sm md:text-base text-blue-200">Программ</div>
+              <div className="text-sm md:text-base text-blue-200">
+                {t('hero.stats.programs')}
+              </div>
             </div>
           </div>
         </div>

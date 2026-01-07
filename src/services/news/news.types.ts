@@ -3,7 +3,7 @@ import type { ICategory } from '../category/category.types'
 export type INews = {
   id: number
   title: string
-  content: string
+  content: string | null
   category: ICategory | null
   image: string
   created_at: string

@@ -1,8 +1,14 @@
 import { NewsCard } from '@/components/screens/news/news-card/news-card'
 import { cn } from '@/lib/utils'
-import { MOCK_NEWS } from '@/services/news'
+import { type INews } from '@/services/news'
 
-export const NewsList = ({ className = `` }: { className?: string }) => {
+export const NewsList = ({
+  className = ``,
+  data = [],
+}: {
+  className?: string
+  data: INews[]
+}) => {
   return (
     <div
       className={cn(
@@ -10,8 +16,8 @@ export const NewsList = ({ className = `` }: { className?: string }) => {
         className,
       )}
     >
-      {MOCK_NEWS.map((news) => (
-        <NewsCard key={news.id} news={news} />
+      {data.map((news) => (
+        <NewsCard key={news.id} data={news} />
       ))}
     </div>
   )

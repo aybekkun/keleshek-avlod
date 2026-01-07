@@ -1,6 +1,7 @@
 import { StaffList } from '@/components/screens/staff/staff-list'
 import { SectionHeader } from '@/components/shared/section-header'
 import { Container } from '@/components/ui'
+import { useStaff } from '@/services/staff'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/staff/')({
@@ -8,6 +9,7 @@ export const Route = createFileRoute('/_layout/staff/')({
 })
 
 function RouteComponent() {
+  const { data } = useStaff({})
   return (
     <>
       <section className="py-10 md:py-16 bg-white">
@@ -18,7 +20,7 @@ function RouteComponent() {
             className="text-left md:text-left mb-16"
           />
 
-          <StaffList />
+          <StaffList data={data?.data || []} />
         </Container>
       </section>
     </>

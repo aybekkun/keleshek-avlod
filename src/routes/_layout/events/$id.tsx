@@ -1,5 +1,6 @@
 import { EventDetail } from '@/components/screens/events'
-import { MOCK_EVENTS } from '@/services/events'
+import { useEventById } from '@/services/events'
+
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/events/$id')({
@@ -8,9 +9,8 @@ export const Route = createFileRoute('/_layout/events/$id')({
 
 function RouteComponent() {
   const { id } = Route.useParams()
-  const event = MOCK_EVENTS.find((item) => item.id === id)
-
-  if (!event) {
+  const { data } = useEventById(id)
+  if (!data?.data) {
     return (
       <div className="py-20 text-center">
         <h1 className="text-2xl font-bold">Событие не найдено</h1>
@@ -18,5 +18,5 @@ function RouteComponent() {
     )
   }
 
-  return <EventDetail event={event} />
+  return <EventDetail data={data?.data} />
 }

@@ -1,3 +1,80 @@
 {
-    "home": "home"
+    "home": "home",
+    "navigation": {
+        "main": "Home",
+        "news": "News",
+        "events": "Events",
+        "clubs": "Clubs",
+        "staff": "Staff",
+        "gallery": "Gallery",
+        "about": "About",
+        "contact": "Contact"
+    },
+    "footer": {
+        "description": "A modern educational platform for the development of your children's talents and abilities.",
+        "navigation": "Navigation",
+        "parents": "For Parents",
+        "contacts": "Contacts",
+        "copyright": "© {{year}} Keleshek.uz. All rights reserved."
+    },
+    "about": {
+        "title": "About Us",
+        "subtitle": "We are a modern educational center designed to unlock the talents of the new generation.",
+        "mission": {
+            "title": "Our Mission",
+            "p1": "The mission of our platform is to create a unique ecosystem where children can not only gain academic knowledge but also develop critical thinking, emotional intelligence, and creative abilities.",
+            "p2": "We believe that every child is unique, and our task is to help them find their path to success and happiness in a rapidly changing world."
+        },
+        "values": {
+            "heart": {
+                "title": "Love for Children",
+                "description": "We build relationships based on trust and a sincere interest in every child."
+            },
+            "target": {
+                "title": "Goal Orientation",
+                "description": "We help children set goals and achieve them through hard work and creativity."
+            },
+            "lightbulb": {
+                "title": "Innovation",
+                "description": "We use modern teaching methods and the latest equipment."
+            },
+            "shield": {
+                "title": "Safety",
+                "description": "We create a comfortable and protected environment for learning and leisure."
+            }
+        }
+    },
+    "sections": {
+        "latest_news": {
+            "title": "Latest News",
+            "subtitle": "News",
+            "explore_title": "Want to know more?",
+            "explore_subtitle": "All news"
+        },
+        "latest_events": {
+            "title": "Lectures & workshops",
+            "subtitle": "OUR EVENTS",
+            "explore_title": "Do you want more?",
+            "explore_subtitle": "Explore all events"
+        },
+        "latest_clubs": {
+            "title": "Our Clubs",
+            "subtitle": "WE OFFER",
+            "explore_title": "Want to find something else?",
+            "explore_subtitle": "Explore all clubs"
+        }
+    },
+    "hero": {
+        "badge": "New generation of education",
+        "title_part1": "Future Education for ",
+        "title_part2": "Your Children",
+        "description": "We create an environment where every child unfolds their potential through creativity, science, and sports.",
+        "start_learning": "Start learning",
+        "learn_more": "Learn more",
+        "stats": {
+            "students": "Students",
+            "teachers": "Teachers",
+            "programs": "Programs"
+        }
+    }
 }

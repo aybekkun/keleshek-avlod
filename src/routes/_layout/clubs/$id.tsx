@@ -1,5 +1,5 @@
 import { ClubDetail } from '@/components/screens/clubs/club-detail/club-detail'
-import { MOCK_CLUBS } from '@/services/clubs'
+import { useClubById } from '@/services/clubs'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_layout/clubs/$id')({
@@ -8,9 +8,8 @@ export const Route = createFileRoute('/_layout/clubs/$id')({
 
 function RouteComponent() {
   const { id } = Route.useParams()
-  const club = MOCK_CLUBS.find((item) => item.id === id)
-
-  if (!club) {
+  const { data } = useClubById(id)
+  if (!data?.data) {
     return (
       <div className="py-20 text-center">
         <h1 className="text-2xl font-bold">Кружок не найден</h1>
@@ -18,5 +17,5 @@ function RouteComponent() {
     )
   }
 
-  return <ClubDetail club={club} />
+  return <ClubDetail data={data?.data} />
 }

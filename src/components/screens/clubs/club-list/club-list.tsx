@@ -1,15 +1,15 @@
 import { cn } from '@/lib/utils'
-import { MOCK_CLUBS } from '@/services/clubs'
+
 import { ClubCard } from '../club-card'
+import type { IClub } from '@/services/clubs'
 
 type Props = {
   className?: string
   limit?: number
+  data: IClub[]
 }
 
-export const ClubsList = ({ className = ``, limit }: Props) => {
-  const clubs = limit ? MOCK_CLUBS.slice(0, limit) : MOCK_CLUBS
-
+export const ClubsList = ({ className = ``, data }: Props) => {
   return (
     <div
       className={cn(
@@ -17,7 +17,7 @@ export const ClubsList = ({ className = ``, limit }: Props) => {
         className,
       )}
     >
-      {clubs.map((club) => (
+      {data.map((club) => (
         <ClubCard key={club.id} club={club} />
       ))}
     </div>

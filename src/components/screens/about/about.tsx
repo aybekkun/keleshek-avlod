@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { Heart, Lightbulb, Shield, Target } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface ValueCardProps {
   icon: React.ElementType
@@ -19,7 +20,7 @@ export const ValueCard = ({
       className={cn('flex flex-col items-center text-center group', className)}
     >
       <div className="mb-6 relative">
-        <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white shadow-sm group-hover:shadow-blue-200 group-hover:shadow-lg">
+        <div className="w-16 h-16 rounded-2xl bg-violet-50 flex items-center justify-center text-violet-600 transition-all duration-300 group-hover:bg-violet-600 group-hover:text-white shadow-sm group-hover:shadow-violet-200 group-hover:shadow-lg">
           <Icon className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" />
         </div>
       </div>
@@ -32,53 +33,45 @@ export const ValueCard = ({
 }
 
 export const AboutSection = () => {
+  const { t } = useTranslation()
+
   return (
     <div className="min-h-screen bg-slate-50/50">
       {/* Blue Header Section */}
-      <div className="bg-blue-600 pt-24 pb-48 px-4 text-center">
+      <div className="bg-violet-600 pt-24 pb-48 px-4 text-center">
         <h1 className="text-5xl md:text-6xl font-black text-white mb-6">
-          О нас
+          {t('about.title')}
         </h1>
-        <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-          Мы — современная образовательная платформа, призванная раскрыть
-          таланты нового поколения.
+        <p className="text-violet-100 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+          {t('about.subtitle')}
         </p>
       </div>
 
       {/* Main Content Overlapping Card */}
       <div className="max-w-6xl mx-auto px-4 -mt-32 mb-20">
-        <div className="bg-white rounded-[40px] shadow-2xl shadow-blue-900/5 p-8 md:p-16">
+        <div className="bg-white rounded-[40px] shadow-2xl shadow-violet-900/5 p-8 md:p-16">
           <div className="flex flex-col lg:flex-row gap-16 items-center mb-20">
             <div className="flex-1 space-y-8">
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900">
-                Наша Миссия
+                {t('about.mission.title')}
               </h2>
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-medium">
-                <p>
-                  Миссия нашей платформы заключается в создании уникальной
-                  экосистемы, где дети могут не только получать академические
-                  знания, но и развивать критическое мышление, эмоциональный
-                  интеллект и творческие способности.
-                </p>
-                <p>
-                  Мы верим, что каждый ребенок уникален, и наша задача — помочь
-                  ему найти свой путь к успеху и счастью в быстро меняющемся
-                  мире.
-                </p>
+                <p>{t('about.mission.p1')}</p>
+                <p>{t('about.mission.p2')}</p>
               </div>
             </div>
 
             <div className="flex-1 flex gap-6">
               <div className="mt-12 flex-1 aspect-4/5 rounded-4xl overflow-hidden shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop"
+                  src="/1.avif"
                   alt="Students learning"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="flex-1 aspect-4/5 rounded-4xl overflow-hidden shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1000&auto=format&fit=crop"
+                  src="/2.avif"
                   alt="Educational environment"
                   className="w-full h-full object-cover"
                 />
@@ -90,23 +83,23 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pt-12 border-t border-slate-100">
             <ValueCard
               icon={Heart}
-              title="Любовь к детям"
-              description="Мы строим отношения на доверии и искреннем интересе к каждому ребенку."
+              title={t('about.values.heart.title')}
+              description={t('about.values.heart.description')}
             />
             <ValueCard
               icon={Target}
-              title="Целеустремленность"
-              description="Помогаем детям ставить цели и достигать их через труд и творчество."
+              title={t('about.values.target.title')}
+              description={t('about.values.target.description')}
             />
             <ValueCard
               icon={Lightbulb}
-              title="Инновации"
-              description="Используем современные методики обучения и новейшее оборудование."
+              title={t('about.values.lightbulb.title')}
+              description={t('about.values.lightbulb.description')}
             />
             <ValueCard
               icon={Shield}
-              title="Безопасность"
-              description="Создаем комфортную и защищенную среду для обучения и досуга."
+              title={t('about.values.shield.title')}
+              description={t('about.values.shield.description')}
             />
           </div>
         </div>

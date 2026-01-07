@@ -1,9 +1,14 @@
+import { useContact } from '@/services/contacts'
 import { Link } from '@tanstack/react-router'
 import { Facebook, Instagram, Youtube } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Container } from '../ui/container'
 import { Logo } from './logo'
 
 export const Footer = () => {
+  const { data } = useContact()
+  const { t } = useTranslation()
+
   return (
     <footer className="bg-white border-t pt-20 pb-10">
       <Container>
@@ -11,8 +16,7 @@ export const Footer = () => {
           <div>
             <Logo />
             <p className="text-slate-500 mb-8 leading-relaxed">
-              Современная образовательная платформа для развития талантов и
-              способностей ваших детей.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a
@@ -37,19 +41,21 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-6">Навигация</h4>
+            <h4 className="text-lg font-bold text-slate-900 mb-6">
+              {t('footer.navigation')}
+            </h4>
             <ul className="space-y-4">
               <li>
                 <Link
                   to="/about"
                   className="text-slate-500 hover:text-blue-600"
                 >
-                  About
+                  {t('navigation.about')}
                 </Link>
               </li>
               <li>
                 <Link to="/news" className="text-slate-500 hover:text-blue-600">
-                  News
+                  {t('navigation.news')}
                 </Link>
               </li>
               <li>
@@ -57,7 +63,7 @@ export const Footer = () => {
                   to="/clubs"
                   className="text-slate-500 hover:text-blue-600"
                 >
-                  Clubs
+                  {t('navigation.clubs')}
                 </Link>
               </li>
               <li>
@@ -65,7 +71,7 @@ export const Footer = () => {
                   to="/contact"
                   className="text-slate-500 hover:text-blue-600"
                 >
-                  Contact
+                  {t('navigation.contact')}
                 </Link>
               </li>
             </ul>
@@ -73,7 +79,7 @@ export const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold text-slate-900 mb-6">
-              Для родителей
+              {t('footer.parents')}
             </h4>
             <ul className="space-y-4">
               <li>
@@ -81,7 +87,7 @@ export const Footer = () => {
                   to="/events"
                   className="text-slate-500 hover:text-blue-600"
                 >
-                  Events
+                  {t('navigation.events')}
                 </Link>
               </li>
               <li>
@@ -89,7 +95,7 @@ export const Footer = () => {
                   to="/staff"
                   className="text-slate-500 hover:text-blue-600"
                 >
-                  Staff
+                  {t('navigation.staff')}
                 </Link>
               </li>
               <li>
@@ -97,30 +103,24 @@ export const Footer = () => {
                   to="/gallery"
                   className="text-slate-500 hover:text-blue-600"
                 >
-                  Gallery
+                  {t('navigation.gallery')}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-slate-900 mb-6">Контакты</h4>
-            <p className="text-slate-500 mb-4">Adress</p>
-            <p className="text-slate-900 font-bold mb-1">+998 (71) 123-45-67</p>
-            <p className="text-blue-600 font-bold">info@keleshek.uz</p>
+            <h4 className="text-lg font-bold text-slate-900 mb-6">
+              {t('footer.contacts')}
+            </h4>
+            <p className="text-slate-500 mb-4">{data?.data.address}</p>
+            <p className="text-slate-900 font-bold mb-1">{data?.data.phone}</p>
+            <p className="text-blue-600 font-bold">{data?.data.email}</p>
           </div>
         </div>
 
         <div className="border-t border-slate-100 pt-10 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-          <p>© 2024 Keleshek.uz. Все права защищены.</p>
-          <div className="flex space-x-8 mt-4 md:mt-0">
-            <a href="#" className="hover:text-blue-600 transition-colors">
-              Политика конфиденциальности
-            </a>
-            <a href="#" className="hover:text-blue-600 transition-colors">
-              Условия использования
-            </a>
-          </div>
+          <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
         </div>
       </Container>
     </footer>

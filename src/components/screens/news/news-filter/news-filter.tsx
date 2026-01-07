@@ -1,11 +1,11 @@
+import { useFilters } from '@/hooks'
 import { cn } from '@/lib/utils'
-import { Search } from 'lucide-react'
-import { useState } from 'react'
+import { useCategories } from '@/services/category'
 
 type Props = {
   className?: string
 }
-const CATEGORIES = [
+/* const CATEGORIES = [
   'All',
   'Образование',
   'События',
@@ -13,9 +13,10 @@ const CATEGORIES = [
   'Новости',
   'Спорт',
 ]
-
+ */
 export const NewsFilter = ({ className = `` }: Props) => {
-  const [activeCategory, setActiveCategory] = useState('All')
+  const { data } = useCategories({})
+  const { filters, setFilters } = useFilters('/_layout/news/')
   return (
     <>
       <div
@@ -26,25 +27,37 @@ export const NewsFilter = ({ className = `` }: Props) => {
       >
         {/* Categories */}
         <div className="flex flex-wrap items-center gap-2">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={cn(
-                'px-6 py-2.5 rounded-xl text-sm font-black transition-all border shrink-0',
+          <button
+            onClick={() => setFilters({ category: '' })}
+            className={cn(
+              'px-6 py-2.5 uppercase rounded-xl text-sm font-black transition-all border shrink-0',
 
-                cat === activeCategory
+              !filters.category
+                ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20 scale-105'
+                : 'bg-white text-slate-500 border-slate-100 hover:border-primary/30 hover:text-primary',
+            )}
+          >
+            All
+          </button>
+          {data?.data.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setFilters({ category: cat.id })}
+              className={cn(
+                'px-6 py-2.5 uppercase rounded-xl text-sm font-black transition-all border shrink-0',
+
+                cat.id === filters.category
                   ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20 scale-105'
                   : 'bg-white text-slate-500 border-slate-100 hover:border-primary/30 hover:text-primary',
               )}
             >
-              {cat}
+              {cat.name}
             </button>
           ))}
         </div>
 
         {/* Search */}
-        <form className="group relative max-w-sm w-full">
+        {/*   <form className="group relative max-w-sm w-full">
           <input
             type="text"
             placeholder="Search blog..."
@@ -56,7 +69,7 @@ export const NewsFilter = ({ className = `` }: Props) => {
           >
             <Search className="w-5 h-5" />
           </button>
-        </form>
+        </form> */}
       </div>
     </>
   )

@@ -4,6 +4,7 @@ import languageDetecter from 'i18next-browser-languagedetector'
 import translationKAA from './locales/kaa.json'
 import translationUZ from './locales/uz.json'
 import translationEN from './locales/en.json'
+import translationRU from './locales/ru.json'
 i18n // Поддержка загрузки переводов (можно убрать, если локальные)
   .use(initReactI18next)
   .use(languageDetecter) // Интеграция с React
@@ -23,6 +24,9 @@ i18n // Поддержка загрузки переводов (можно уб�
       },
       en: {
         translation: translationEN,
+      },
+      ru: {
+        translation: translationRU,
       },
     },
     interpolation: {

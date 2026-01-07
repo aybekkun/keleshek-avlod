@@ -33,7 +33,7 @@ export type IParams = {
     | 'date'
   last_name?: string
   teacher_id?: number
-  category_id?: number | string
+  category?: number | string
 }
 
 export type ResponseError = AxiosError<{

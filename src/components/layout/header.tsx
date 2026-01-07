@@ -12,20 +12,12 @@ import {
 } from '../ui'
 import { Logo } from './logo'
 import { MobileMenu } from './mobile-menu'
+import { useQueryClient } from '@tanstack/react-query'
+import { useNavLinks } from './use-nav-links'
 type Props = {
   className?: string
 }
 
-const navLinks = [
-  { name: 'Main', path: '/' },
-  { name: 'News', path: '/news' },
-  { name: 'Events', path: '/events' },
-  { name: 'Clubs', path: '/clubs' },
-  { name: 'Staff', path: '/staff' },
-  { name: 'Gallery', path: '/gallery' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
-]
 const languages = [
   { code: 'kaa', label: 'kaa' },
   { code: 'ru', label: 'ru' },
@@ -34,6 +26,14 @@ const languages = [
 ]
 export const Header = ({ className = `` }: Props) => {
   const { i18n } = useTranslation()
+  const navLinks = useNavLinks()
+  const queryClient = useQueryClient()
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language)
+    localStorage.setItem('lang', language)
+    queryClient.invalidateQueries()
+  }
+  const currentLanguage = i18n.language
 
   return (
     <header className={cn('bg-white border-b sticky top-0 z-50', className)}>
@@ -60,8 +60,8 @@ export const Header = ({ className = `` }: Props) => {
           <div className="flex items-center gap-2 mr-2">
             <Globe className="w-4 h-4 text-slate-400 hidden sm:block" />
             <Select
-              defaultValue={i18n.language}
-              onValueChange={(value) => i18n.changeLanguage(value)}
+              defaultValue={currentLanguage}
+              onValueChange={(value) => changeLanguage(value)}
             >
               <SelectTrigger className="w-17.5 h-9">
                 <SelectValue placeholder="Select" />

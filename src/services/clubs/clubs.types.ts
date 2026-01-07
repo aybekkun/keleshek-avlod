@@ -1,7 +1,8 @@
 export type IClub = {
   id: number
   title: string
-  image: string | null
+  image: string
+  content: string | null
   age: string
   days: number[]
   index: number

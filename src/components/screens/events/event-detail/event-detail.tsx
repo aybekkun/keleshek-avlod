@@ -2,12 +2,12 @@ import { Button, Container } from '@/components/ui'
 import { type IEvent } from '@/services/events'
 import { Link } from '@tanstack/react-router'
 import { Calendar, ChevronLeft, Clock, MapPin, Share2 } from 'lucide-react'
-
+import parse from 'html-react-parser'
 interface EventDetailProps {
-  event: IEvent
+  data: IEvent
 }
 
-export const EventDetail = ({ event }: EventDetailProps) => {
+export const EventDetail = ({ data }: EventDetailProps) => {
   return (
     <article className="bg-white pb-20 pt-10">
       <Container>
@@ -24,20 +24,19 @@ export const EventDetail = ({ event }: EventDetailProps) => {
             <div className="space-y-6 mb-10">
               <div className="flex flex-wrap gap-4 items-center">
                 <span className="inline-flex items-center px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold rounded-full border border-primary/5 uppercase tracking-widest">
-                  {event.type}
+                  {data.sub_title}
                 </span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
-                {event.title}
+                {data.title}
               </h1>
             </div>
 
             <div className="max-w-none prose prose-lg prose-slate">
-              <div
-                className="space-y-6 text-slate-600 leading-relaxed text-lg"
-                dangerouslySetInnerHTML={{ __html: event.description || '' }}
-              />
+              <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
+                {parse(data.content || '')}
+              </div>
             </div>
 
             {/* Share Section */}
@@ -76,7 +75,7 @@ export const EventDetail = ({ event }: EventDetailProps) => {
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                         Дата
                       </p>
-                      <p className="font-bold text-slate-900">{event.date}</p>
+                      <p className="font-bold text-slate-900">{data.date}</p>
                     </div>
                   </div>
 
@@ -88,7 +87,9 @@ export const EventDetail = ({ event }: EventDetailProps) => {
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                         Время
                       </p>
-                      <p className="font-bold text-slate-900">{event.time}</p>
+                      <p className="font-bold text-slate-900">
+                        {data.from_time} - {data.to_time}
+                      </p>
                     </div>
                   </div>
 
@@ -101,7 +102,7 @@ export const EventDetail = ({ event }: EventDetailProps) => {
                         Место
                       </p>
                       <p className="font-bold text-slate-900">
-                        {event.location}
+                        {data.location}
                       </p>
                     </div>
                   </div>
