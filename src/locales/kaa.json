@@ -76,5 +76,64 @@
       "teachers": "Muǵallimler",
       "programs": "Dastúrler"
     }
+  },
+  "contact": {
+    "page_title": "Baylanıs",
+    "address_label": "Mánzil",
+    "phone_label": "Telefon",
+    "email_label": "Email",
+    "form_title": "Biz benen baylanısıń",
+    "form_name": "Atıńız",
+    "form_phone": "Telefon",
+    "form_message": "Xabar",
+    "form_placeholder_name": "Amet Polat",
+    "form_placeholder_message": "Xabarıńız...",
+    "form_submit": "Jiberiw",
+    "form_submitting": "Jiberilmekte...",
+    "form_success": "Xabar tabıslı jiberildi",
+    "form_error": "Xabar jiberiwde qátelik júz berdi",
+    "form_validation": "Iltimos, barlıq maydanlardı toltırıń"
+  },
+  "staff": {
+    "page_title": "Bizniń jamoa",
+    "page_subtitle": "EŃ JAXSı MUԌALLIMLER USı JERDE"
+  },
+  "clubs": {
+    "page_title": "Tógerekler",
+    "page_subtitle": "Rawajlandırıwshı shınıǵıwlar",
+    "age": "Jas",
+    "schedule": "Dars kestesi",
+    "not_found": "Tógerek tabılmadı",
+    "back": "Tógereklerge qaytıw",
+    "info": "Maǵlıwmat",
+    "share": "Ulasıw"
+  },
+  "events": {
+    "page_title": "Waqıyalar",
+    "page_subtitle": "Lektsiyalar hám seminarlar",
+    "view_more": "Batafsil",
+    "not_found": "Waqıya tabılmadı",
+    "back": "Waqıyalarǵa qaytıw",
+    "share": "Ulasıw",
+    "details": "Waqıya detalları",
+    "date": "Sana",
+    "time": "Vaqıt",
+    "location": "Mánzil"
+  },
+  "news": {
+    "page_title": "Jańalıqlar",
+    "page_subtitle": "Sońǵı waqıyalar",
+    "read_more": "Batafsil oqıw",
+    "not_found": "Jańalıq tabılmadı",
+    "back": "Jańalıqlarǵa qaytıw",
+    "related": "Sonday-aq oqıń",
+    "all": "Barlıq jańalıqlardı kóriw"
+  },
+  "gallery": {
+    "page_title": "Galereya",
+    "page_subtitle": "Bizniń ómirimiz súretlerde"
+  },
+  "common": {
+    "toggle_menu": "Menyunu ashıw"
   }
 }

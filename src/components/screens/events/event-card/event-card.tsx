@@ -1,10 +1,11 @@
 import { Button } from '@/components/ui'
-import { cn } from '@/lib/utils'
+import { cn, formatDate } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
 import { Clock, MapPin } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 import type { IEvent } from '@/services/events'
-import dayjs from 'dayjs'
+
 type Props = {
   event: IEvent
   index: number
@@ -12,7 +13,9 @@ type Props = {
 }
 
 export const EventCard = ({ event, index, className }: Props) => {
-  const date = dayjs(event.date).format('DD.MM.YYYY')
+  const { t } = useTranslation()
+  const dateStr = formatDate(event.date)
+
   return (
     <div
       className={cn(
@@ -27,11 +30,11 @@ export const EventCard = ({ event, index, className }: Props) => {
       {/* Date Column */}
       <div className="flex flex-col items-center md:items-start min-w-35 relative z-10">
         <span className="text-4xl md:text-5xl font-black text-primary leading-none mb-1 group-hover:scale-110 transition-transform duration-500 origin-left">
-          {date.split('.')[0]}
+          {dateStr.split('.')[0]}
         </span>
         <div className="flex flex-col items-center md:items-start">
           <span className="text-sm font-extrabold text-slate-800 uppercase tracking-widest">
-            {date.split('.').slice(1).join('.')}
+            {dateStr.split('.').slice(1).join('.')}
           </span>
           <div className="flex items-center gap-2 text-slate-400 mt-2">
             <Clock className="w-3.5 h-3.5" />
@@ -71,7 +74,7 @@ export const EventCard = ({ event, index, className }: Props) => {
           asChild
         >
           <Link to={`/events/$id`} params={{ id: String(event.id) }}>
-            View more
+            {t('events.view_more')}
           </Link>
         </Button>
       </div>

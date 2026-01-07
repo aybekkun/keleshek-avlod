@@ -1,10 +1,12 @@
 import { Container } from '@/components/ui/container'
 import { useContact } from '@/services/contacts'
 import { Mail, MapPin, Phone } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { ContactForm } from './contact-form'
 
 export const ContactSection = () => {
   const { data } = useContact()
+  const { t } = useTranslation()
 
   return (
     <div className="min-h-screen bg-slate-50/50 py-20">
@@ -13,7 +15,7 @@ export const ContactSection = () => {
           {/* Left Side: Contact Info & Map */}
           <div className="flex-1 space-y-12">
             <h1 className="text-4xl font-black text-slate-900 mb-8">
-              Контакты
+              {t('contact.page_title')}
             </h1>
 
             <div className="space-y-8">
@@ -24,7 +26,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                    Adress
+                    {t('contact.address_label')}
                   </p>
                   <p className="text-lg font-semibold text-slate-700">
                     {data?.data.address}
@@ -39,7 +41,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                    Телефон
+                    {t('contact.phone_label')}
                   </p>
                   <p className="text-lg font-semibold text-slate-700">
                     {data?.data.phone}
@@ -54,7 +56,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">
-                    Email
+                    {t('contact.email_label')}
                   </p>
                   <p className="text-lg font-semibold text-slate-700">
                     {data?.data.email}
@@ -80,7 +82,7 @@ export const ContactSection = () => {
           <div className="flex-1 lg:max-w-xl">
             <div className="bg-white rounded-[40px] shadow-2xl shadow-blue-900/5 p-8 md:p-12 border border-slate-100">
               <h2 className="text-3xl font-bold text-slate-900 mb-10">
-                Свяжитесь с нами
+                {t('contact.form_title')}
               </h2>
 
               <ContactForm />

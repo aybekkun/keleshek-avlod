@@ -1,13 +1,17 @@
 import { Button, Container } from '@/components/ui'
 import { type IClub } from '@/services/clubs'
 import { Link } from '@tanstack/react-router'
-import { ChevronLeft, Clock, Share2, Users } from 'lucide-react'
 import parse from 'html-react-parser'
+import { ChevronLeft, Clock, Share2, Users } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
 interface ClubDetailProps {
   data: IClub
 }
 
 export const ClubDetail = ({ data }: ClubDetailProps) => {
+  const { t } = useTranslation()
+
   return (
     <article className=" bg-white pb-20 pt-10">
       <Container>
@@ -19,7 +23,7 @@ export const ClubDetail = ({ data }: ClubDetailProps) => {
               className="inline-flex items-center text-slate-500 hover:text-primary transition-colors text-sm font-medium mb-8 group"
             >
               <ChevronLeft className="w-4 h-4 mr-1 transition-transform group-hover:-translate-x-1" />
-              Назад к кружкам
+              {t('clubs.back')}
             </Link>
 
             <div className="relative aspect-video w-full overflow-hidden rounded-[40px] shadow-2xl shadow-slate-200 mb-12 group">
@@ -53,7 +57,7 @@ export const ClubDetail = ({ data }: ClubDetailProps) => {
             <div className="mt-16 pt-8 border-t border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-                  Поделиться
+                  {t('clubs.share')}
                 </span>
                 <div className="flex gap-2">
                   <Button
@@ -73,7 +77,7 @@ export const ClubDetail = ({ data }: ClubDetailProps) => {
             <div className="bg-slate-50/50 rounded-4xl p-8 space-y-8 border border-slate-100 sticky top-24">
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-slate-900 tracking-tight">
-                  Информация
+                  {t('clubs.info')}
                 </h3>
 
                 <div className="space-y-4">
@@ -83,7 +87,7 @@ export const ClubDetail = ({ data }: ClubDetailProps) => {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Возраст
+                        {t('clubs.age')}
                       </p>
                       <p className="font-bold text-slate-900">{data.age}</p>
                     </div>
@@ -95,9 +99,11 @@ export const ClubDetail = ({ data }: ClubDetailProps) => {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Расписание
+                        {t('clubs.schedule')}
                       </p>
-                      <p className="font-bold text-slate-900">{data.days}</p>
+                      <p className="font-bold text-slate-900">
+                        {data.days.join(', ')}
+                      </p>
                     </div>
                   </div>
                 </div>

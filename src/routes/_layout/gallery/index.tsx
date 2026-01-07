@@ -5,6 +5,7 @@ import { useFilters } from '@/hooks'
 import { useGallery } from '@/services/gallery'
 import type { IParams } from '@/services/service.types'
 import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 
 export const Route = createFileRoute('/_layout/gallery/')({
   component: RouteComponent,
@@ -12,6 +13,7 @@ export const Route = createFileRoute('/_layout/gallery/')({
 })
 
 function RouteComponent() {
+  const { t } = useTranslation()
   const { filters, setFilters } = useFilters(Route.id)
   const { data } = useGallery({
     page: filters.page ?? 1,
@@ -20,8 +22,8 @@ function RouteComponent() {
   return (
     <>
       <PageHeader
-        title="Галерея"
-        subtitle="Яркие моменты из жизни нашего центра"
+        title={t('gallery.page_title')}
+        subtitle={t('gallery.page_subtitle')}
       />
       <Container className="py-20">
         <GalleryList data={data?.data || []} />

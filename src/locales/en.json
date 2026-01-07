@@ -76,5 +76,64 @@
             "teachers": "Teachers",
             "programs": "Programs"
         }
+    },
+    "contact": {
+        "page_title": "Contacts",
+        "address_label": "Address",
+        "phone_label": "Phone",
+        "email_label": "Email",
+        "form_title": "Contact us",
+        "form_name": "Name",
+        "form_phone": "Phone",
+        "form_message": "Message",
+        "form_placeholder_name": "John Doe",
+        "form_placeholder_message": "Your message...",
+        "form_submit": "Send",
+        "form_submitting": "Sending...",
+        "form_success": "Message sent successfully",
+        "form_error": "Error sending message",
+        "form_validation": "Please fill in all fields"
+    },
+    "staff": {
+        "page_title": "Meet our team",
+        "page_subtitle": "BEST TUTORS ARE ALL HERE"
+    },
+    "clubs": {
+        "page_title": "Clubs",
+        "page_subtitle": "Educational classes",
+        "age": "Age",
+        "schedule": "Schedule",
+        "not_found": "Club not found",
+        "back": "Back to clubs",
+        "info": "Information",
+        "share": "Share"
+    },
+    "events": {
+        "page_title": "Events",
+        "page_subtitle": "Lectures & workshops",
+        "view_more": "View more",
+        "not_found": "Event not found",
+        "back": "Back to events",
+        "share": "Share Event",
+        "details": "Event Details",
+        "date": "Date",
+        "time": "Time",
+        "location": "Location"
+    },
+    "news": {
+        "page_title": "News",
+        "page_subtitle": "Latest updates",
+        "read_more": "Read more",
+        "not_found": "News not found",
+        "back": "Back to news",
+        "related": "Also read",
+        "all": "View all news"
+    },
+    "gallery": {
+        "page_title": "Gallery",
+        "page_subtitle": "Our life in photos"
+    },
+    "common": {
+        "toggle_menu": "Toggle menu"
     }
 }

@@ -76,5 +76,64 @@
             "teachers": "Преподавателей",
             "programs": "Программ"
         }
+    },
+    "contact": {
+        "page_title": "Контакты",
+        "address_label": "Адрес",
+        "phone_label": "Телефон",
+        "email_label": "Email",
+        "form_title": "Свяжитесь с нами",
+        "form_name": "Имя",
+        "form_phone": "Телефон",
+        "form_message": "Сообщение",
+        "form_placeholder_name": "Иван Иванов",
+        "form_placeholder_message": "Ваше сообщение...",
+        "form_submit": "Отправить",
+        "form_submitting": "Отправка...",
+        "form_success": "Сообщение успешно отправлено",
+        "form_error": "Ошибка при отправке сообщения",
+        "form_validation": "Пожалуйста, заполните все поля"
+    },
+    "staff": {
+        "page_title": "Наша команда",
+        "page_subtitle": "ЛУЧШИЕ ПРЕПОДАВАТЕЛИ ЗДЕСЬ"
+    },
+    "clubs": {
+        "page_title": "Кружки",
+        "page_subtitle": "Развивающие занятия",
+        "age": "Возраст",
+        "schedule": "Расписание",
+        "not_found": "Кружок не найден",
+        "back": "Назад к кружкам",
+        "info": "Информация",
+        "share": "Поделиться"
+    },
+    "events": {
+        "page_title": "Мероприятия",
+        "page_subtitle": "Лекции и семинары",
+        "view_more": "Подробнее",
+        "not_found": "Мероприятие не найдено",
+        "back": "Назад к мероприятиям",
+        "share": "Поделиться",
+        "details": "Детали события",
+        "date": "Дата",
+        "time": "Время",
+        "location": "Место"
+    },
+    "news": {
+        "page_title": "Новости",
+        "page_subtitle": "Последние события",
+        "read_more": "Читать далее",
+        "not_found": "Новость не найдена",
+        "back": "Назад к новостям",
+        "related": "Читайте также",
+        "all": "Посмотреть все новости"
+    },
+    "gallery": {
+        "page_title": "Галерея",
+        "page_subtitle": "Наша жизнь в фотографиях"
+    },
+    "common": {
+        "toggle_menu": "Открыть меню"
     }
 }

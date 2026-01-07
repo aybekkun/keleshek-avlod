@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/sheet'
 import { Link } from '@tanstack/react-router'
 import { Menu } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { Logo } from './logo'
 
 interface NavLink {
@@ -21,12 +22,13 @@ interface MobileMenuProps {
 }
 
 export const MobileMenu = ({ navLinks }: MobileMenuProps) => {
+  const { t } = useTranslation()
   return (
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="xl:hidden">
           <Menu className="h-6 w-6" />
-          <span className="sr-only">Toggle menu</span>
+          <span className="sr-only">{t('common.toggle_menu')}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-75 p-4 sm:w-100">

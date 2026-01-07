@@ -6,6 +6,7 @@ import { ContactsService } from '@/services/contacts/contacts.service'
 import { useMutation } from '@tanstack/react-query'
 import { Send } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { PatternFormat } from 'react-number-format'
 
 export const formatPhoneReverse = (phone?: string) => {
@@ -17,6 +18,7 @@ export const formatPhoneReverse = (phone?: string) => {
 }
 
 export const ContactForm = () => {
+  const { t } = useTranslation()
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
@@ -24,13 +26,13 @@ export const ContactForm = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: ContactsService.sendMessage,
     onSuccess: () => {
-      alert('вы отправили сообщенение')
+      alert(t('contact.form_success'))
       setName('')
       setPhone('')
       setMessage('')
     },
     onError: () => {
-      alert('Ошибка при отправке сообщения')
+      alert(t('contact.form_error'))
     },
   })
 
@@ -38,7 +40,7 @@ export const ContactForm = () => {
     e.preventDefault()
 
     if (!name || !phone || !message) {
-      alert('Пожалуйста, заполните все поля')
+      alert(t('contact.form_validation'))
       return
     }
 
@@ -53,11 +55,11 @@ export const ContactForm = () => {
     <form className="space-y-8" onSubmit={onSubmit}>
       <Field>
         <FieldLabel className="text-slate-600 font-semibold mb-2 ml-1">
-          Имя
+          {t('contact.form_name')}
         </FieldLabel>
         <FieldContent>
           <Input
-            placeholder="Иван Иванов"
+            placeholder={t('contact.form_placeholder_name')}
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="rounded-2xl border-none bg-slate-50 h-14 px-6 focus-visible:ring-blue-600 text-slate-700 placeholder:text-slate-300 transition-all focus-visible:bg-white focus-visible:shadow-md"
@@ -67,7 +69,7 @@ export const ContactForm = () => {
 
       <Field>
         <FieldLabel className="text-slate-600 font-semibold mb-2 ml-1">
-          Телефон
+          {t('contact.form_phone')}
         </FieldLabel>
         <FieldContent>
           <PatternFormat
@@ -82,11 +84,11 @@ export const ContactForm = () => {
 
       <Field>
         <FieldLabel className="text-slate-600 font-semibold mb-2 ml-1">
-          Сообщение
+          {t('contact.form_message')}
         </FieldLabel>
         <FieldContent>
           <Textarea
-            placeholder="Ваше сообщение..."
+            placeholder={t('contact.form_placeholder_message')}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="rounded-2xl border-none bg-slate-50 min-h-32 p-6 focus-visible:ring-blue-600 text-slate-700 placeholder:text-slate-300 transition-all focus-visible:bg-white focus-visible:shadow-md resize-none"
@@ -100,7 +102,7 @@ export const ContactForm = () => {
         className="w-full h-16 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg shadow-xl shadow-blue-200 transition-all hover:-translate-y-1 active:translate-y-0 group disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <Send className="w-5 h-5 mr-3 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-        {isPending ? 'Отправка...' : 'Отправить'}
+        {isPending ? t('contact.form_submitting') : t('contact.form_submit')}
       </Button>
     </form>
   )

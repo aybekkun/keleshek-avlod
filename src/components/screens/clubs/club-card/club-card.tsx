@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
 import { Clock, User } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 import { type IClub } from '@/services/clubs'
 
@@ -11,6 +12,8 @@ type Props = {
 }
 
 export const ClubCard = ({ club, className }: Props) => {
+  const { t } = useTranslation()
+
   return (
     <Card
       className={cn(
@@ -33,7 +36,9 @@ export const ClubCard = ({ club, className }: Props) => {
         <div className="absolute top-4 left-4">
           <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-primary text-[10px] md:text-xs font-black rounded-lg shadow-sm border border-primary/10">
             <User className="w-3 h-3 text-primary" />
-            <span>Возраст: {club.age}</span>
+            <span>
+              {t('clubs.age')}: {club.age}
+            </span>
           </div>
         </div>
       </div>
@@ -58,7 +63,7 @@ export const ClubCard = ({ club, className }: Props) => {
             </div>
             <div className="flex flex-col">
               <span className="text-[10px] font-black text-primary uppercase tracking-widest">
-                Расписание
+                {t('clubs.schedule')}
               </span>
               <span className="text-sm font-bold text-slate-700">
                 {club.days.join(', ')}

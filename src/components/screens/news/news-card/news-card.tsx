@@ -1,9 +1,10 @@
 import { Button } from '@/components/ui'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
-import { cn } from '@/lib/utils'
+import { cn, formatDate } from '@/lib/utils'
 import type { INews } from '@/services/news'
 import { Link } from '@tanstack/react-router'
 import { ArrowRight, Calendar } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   className?: string
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export const NewsCard = ({ data, className = `` }: Props) => {
+  const { t } = useTranslation()
   return (
     <Card
       key={data.id}
@@ -41,7 +43,7 @@ export const NewsCard = ({ data, className = `` }: Props) => {
         <div className="flex items-center gap-4 text-xs font-bold text-slate-400">
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 text-primary/60" />
-            <span>{data.created_at}</span>
+            <span>{formatDate(data.created_at)}</span>
           </div>
         </div>
 
@@ -54,7 +56,7 @@ export const NewsCard = ({ data, className = `` }: Props) => {
         {/*         <CardDescription className="text-slate-500 text-sm line-clamp-3 leading-relaxed mb-6 font-medium">
           {news.excerpt}
         </CardDescription>
- */}
+  */}
         <div className="pt-2 border-t border-slate-50">
           <Button
             asChild
@@ -66,7 +68,7 @@ export const NewsCard = ({ data, className = `` }: Props) => {
               params={{ id: String(data.id) }}
               className="flex items-center gap-2"
             >
-              Read more
+              {t('news.read_more')}
               <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
             </Link>
           </Button>

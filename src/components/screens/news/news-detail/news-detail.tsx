@@ -1,13 +1,18 @@
 import { Container } from '@/components/ui'
+import { formatDate } from '@/lib/utils'
 import type { INews } from '@/services/news'
 import { Link } from '@tanstack/react-router'
-import { ArrowRight, Calendar, ChevronLeft } from 'lucide-react'
 import parser from 'html-react-parser'
+import { ArrowRight, Calendar, ChevronLeft } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
 interface NewsDetailProps {
   data: INews
 }
 
 export const NewsDetail = ({ data }: NewsDetailProps) => {
+  const { t } = useTranslation()
+
   return (
     <article className="bg-white pb-20 pt-10">
       <Container>
@@ -19,7 +24,7 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
               className="inline-flex items-center text-slate-500 hover:text-blue-600 transition-colors text-sm font-medium mb-8 group"
             >
               <ChevronLeft className="w-4 h-4 mr-1 transition-transform group-hover:-translate-x-1" />
-              Назад к новостям
+              {t('news.back')}
             </Link>
             <div className="relative aspect-video w-full overflow-hidden rounded-[40px] shadow-2xl shadow-blue-900/10 mb-12">
               <img
@@ -36,7 +41,7 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
                 </span>
                 <div className="flex items-center text-slate-400 text-sm font-medium">
                   <Calendar className="w-4 h-4 mr-2 opacity-50" />
-                  {data.created_at}
+                  {formatDate(data.created_at)}
                 </div>
               </div>
 
@@ -63,7 +68,7 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
             <div className="bg-slate-50/50 rounded-3xl p-8 sticky top-24">
               <div className="flex items-center justify-between mb-8">
                 <h3 className="text-xl font-bold text-slate-900 tracking-tight">
-                  Читайте также
+                  {t('news.related')}
                 </h3>
                 <Link
                   to="/news"
@@ -97,7 +102,7 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
                       </h4>
                       <div className="flex items-center text-[10px] text-slate-400 font-medium">
                         <Calendar className="w-3 h-3 mr-1 opacity-50" />
-                        {item.created_at}
+                        {formatDate(item.created_at)}
                       </div>
                     </div>
                   </Link>
@@ -108,7 +113,7 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
                 to="/news"
                 className="mt-10 w-full inline-flex items-center justify-center py-4 rounded-xl border border-slate-200 text-sm font-bold text-slate-600 hover:bg-white hover:border-blue-600 hover:text-blue-600 transition-all shadow-sm"
               >
-                Посмотреть все новости
+                {t('news.all')}
               </Link>
             </div>
           </aside>

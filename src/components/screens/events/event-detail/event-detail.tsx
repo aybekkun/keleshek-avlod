@@ -1,13 +1,18 @@
 import { Button, Container } from '@/components/ui'
+import { formatDate } from '@/lib/utils'
 import { type IEvent } from '@/services/events'
 import { Link } from '@tanstack/react-router'
-import { Calendar, ChevronLeft, Clock, MapPin, Share2 } from 'lucide-react'
 import parse from 'html-react-parser'
+import { Calendar, ChevronLeft, Clock, MapPin, Share2 } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+
 interface EventDetailProps {
   data: IEvent
 }
 
 export const EventDetail = ({ data }: EventDetailProps) => {
+  const { t } = useTranslation()
+
   return (
     <article className="bg-white pb-20 pt-10">
       <Container>
@@ -19,7 +24,7 @@ export const EventDetail = ({ data }: EventDetailProps) => {
               className="inline-flex items-center text-slate-500 hover:text-primary transition-colors text-sm font-medium mb-8 group"
             >
               <ChevronLeft className="w-4 h-4 mr-1 transition-transform group-hover:-translate-x-1" />
-              Назад к событиям
+              {t('events.back')}
             </Link>
             <div className="space-y-6 mb-10">
               <div className="flex flex-wrap gap-4 items-center">
@@ -43,7 +48,7 @@ export const EventDetail = ({ data }: EventDetailProps) => {
             <div className="mt-16 pt-8 border-t border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-                  Share Event
+                  {t('events.share')}
                 </span>
                 <div className="flex gap-2">
                   <Button
@@ -63,7 +68,7 @@ export const EventDetail = ({ data }: EventDetailProps) => {
             <div className="bg-slate-50/50 rounded-4xl p-8 space-y-8 border border-slate-100 sticky top-24">
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-slate-900 tracking-tight">
-                  Детали события
+                  {t('events.details')}
                 </h3>
 
                 <div className="space-y-4">
@@ -73,9 +78,11 @@ export const EventDetail = ({ data }: EventDetailProps) => {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Дата
+                        {t('events.date')}
                       </p>
-                      <p className="font-bold text-slate-900">{data.date}</p>
+                      <p className="font-bold text-slate-900">
+                        {formatDate(data.date)}
+                      </p>
                     </div>
                   </div>
 
@@ -85,7 +92,7 @@ export const EventDetail = ({ data }: EventDetailProps) => {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Время
+                        {t('events.time')}
                       </p>
                       <p className="font-bold text-slate-900">
                         {data.from_time} - {data.to_time}
@@ -99,7 +106,7 @@ export const EventDetail = ({ data }: EventDetailProps) => {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Место
+                        {t('events.location')}
                       </p>
                       <p className="font-bold text-slate-900">
                         {data.location}

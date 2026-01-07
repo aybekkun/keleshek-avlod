@@ -6,6 +6,7 @@ import { useFilters } from '@/hooks'
 import { useNews } from '@/services/news'
 import type { IParams } from '@/services/service.types'
 import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 
 export const Route = createFileRoute('/_layout/news/')({
   component: RouteComponent,
@@ -13,6 +14,7 @@ export const Route = createFileRoute('/_layout/news/')({
 })
 
 function RouteComponent() {
+  const { t } = useTranslation()
   const { filters, setFilters } = useFilters(Route.id)
   const { data } = useNews({
     page: filters.page ?? 1,
@@ -21,7 +23,10 @@ function RouteComponent() {
   })
   return (
     <>
-      <PageHeader title="Новости" subtitle="Все новости" />
+      <PageHeader
+        title={t('news.page_title')}
+        subtitle={t('news.page_subtitle')}
+      />
       <Container className="py-10">
         <NewsFilter className="mb-10" />
         <NewsList data={data?.data || []} />

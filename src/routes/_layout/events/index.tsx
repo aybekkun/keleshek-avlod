@@ -5,6 +5,7 @@ import { useFilters } from '@/hooks'
 import { useEvents } from '@/services/events'
 import type { IParams } from '@/services/service.types'
 import { createFileRoute } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 
 export const Route = createFileRoute('/_layout/events/')({
   component: RouteComponent,
@@ -12,6 +13,7 @@ export const Route = createFileRoute('/_layout/events/')({
 })
 
 function RouteComponent() {
+  const { t } = useTranslation()
   const { filters, setFilters } = useFilters(Route.id)
   const { data } = useEvents({
     page: filters.page ?? 1,
@@ -19,7 +21,10 @@ function RouteComponent() {
   })
   return (
     <>
-      <PageHeader title="События" subtitle="Наши мероприятия" />
+      <PageHeader
+        title={t('events.page_title')}
+        subtitle={t('events.page_subtitle')}
+      />
       <Container className="py-10">
         <EventsList data={data?.data || []} className="mb-10" />
         <Pagination

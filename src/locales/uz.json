@@ -76,5 +76,64 @@
       "teachers": "O'qituvchilar",
       "programs": "Dasturlar"
     }
+  },
+  "contact": {
+    "page_title": "Aloqa",
+    "address_label": "Manzil",
+    "phone_label": "Telefon",
+    "email_label": "Email",
+    "form_title": "Biz bilan bog'laning",
+    "form_name": "Ism",
+    "form_phone": "Telefon",
+    "form_message": "Xabar",
+    "form_placeholder_name": "Islom Karimov",
+    "form_placeholder_message": "Xabaringiz...",
+    "form_submit": "Yuborish",
+    "form_submitting": "Yuborilmoqda...",
+    "form_success": "Xabar muvaffaqiyatli yuborildi",
+    "form_error": "Xabar yuborishda xato yuz berdi",
+    "form_validation": "Iltimos, barcha maydonlarni to'ldiring"
+  },
+  "staff": {
+    "page_title": "Bizning jamoa",
+    "page_subtitle": "ENG YAXSHI O'QITUVCHILAR SHU YERDA"
+  },
+  "clubs": {
+    "page_title": "To'garaklar",
+    "page_subtitle": "Rivojlantiruvchi mashg'ulotlar",
+    "age": "Yosh",
+    "schedule": "Dars jadvali",
+    "not_found": "To'garak topilmadi",
+    "back": "To'garaklarga qaytish",
+    "info": "Ma'lumot",
+    "share": "Ulashish"
+  },
+  "events": {
+    "page_title": "Tadbirlar",
+    "page_subtitle": "Ma'ruzalar va seminarlar",
+    "view_more": "Batafsil",
+    "not_found": "Tadbir topilmadi",
+    "back": "Tadbirlarga qaytish",
+    "share": "Ulashish",
+    "details": "Tadbir tafsilotlari",
+    "date": "Sana",
+    "time": "Vaqt",
+    "location": "Manzil"
+  },
+  "news": {
+    "page_title": "Yangiliklar",
+    "page_subtitle": "So'nggi voqealar",
+    "read_more": "Batafsil o'qish",
+    "not_found": "Yangilik topilmadi",
+    "back": "Yangiliklarga qaytish",
+    "related": "Shuningdek o'qing",
+    "all": "Barcha yangiliklarni ko'rish"
+  },
+  "gallery": {
+    "page_title": "Galereya",
+    "page_subtitle": "Bizning hayotimiz suratlarda"
+  },
+  "common": {
+    "toggle_menu": "Menyuni ochish"
   }
 }
