@@ -12,7 +12,7 @@ type Props = {
 
 export const LatestNewsSection = ({ className = `` }: Props) => {
   const { t } = useTranslation()
-  const { data } = useNews({
+  const { data, isLoading } = useNews({
     page: 1,
     limit: 3,
   })
@@ -24,7 +24,7 @@ export const LatestNewsSection = ({ className = `` }: Props) => {
           subtitle={t('sections.latest_news.subtitle')}
           className="text-center"
         />
-        <NewsList data={data?.data || []} />
+        <NewsList data={data?.data || []} isLoading={isLoading} limit={3} />
         <Explore
           title={t('sections.latest_news.explore_title')}
           subtitle={t('sections.latest_news.explore_subtitle')}

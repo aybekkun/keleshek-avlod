@@ -15,7 +15,7 @@ export const Route = createFileRoute('/_layout/events/')({
 function RouteComponent() {
   const { t } = useTranslation()
   const { filters, setFilters } = useFilters(Route.id)
-  const { data } = useEvents({
+  const { data, isLoading } = useEvents({
     page: filters.page ?? 1,
     limit: filters.limit ?? 5,
   })
@@ -26,7 +26,12 @@ function RouteComponent() {
         subtitle={t('events.page_subtitle')}
       />
       <Container className="py-10">
-        <EventsList data={data?.data || []} className="mb-10" />
+        <EventsList
+          data={data?.data || []}
+          isLoading={isLoading}
+          limit={filters.limit ?? 5}
+          className="mb-10"
+        />
         <Pagination
           total={data?.pagination?.count || 0}
           current={filters.page ?? 1}

@@ -16,7 +16,7 @@ export const Route = createFileRoute('/_layout/news/')({
 function RouteComponent() {
   const { t } = useTranslation()
   const { filters, setFilters } = useFilters(Route.id)
-  const { data } = useNews({
+  const { data, isLoading } = useNews({
     page: filters.page ?? 1,
     limit: filters.limit ?? 10,
     category: filters.category,
@@ -29,7 +29,11 @@ function RouteComponent() {
       />
       <Container className="py-10">
         <NewsFilter className="mb-10" />
-        <NewsList data={data?.data || []} />
+        <NewsList
+          data={data?.data || []}
+          isLoading={isLoading}
+          limit={filters.limit ?? 10}
+        />
         <Pagination
           className="mt-10"
           total={data?.pagination?.count || 0}

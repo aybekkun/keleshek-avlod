@@ -134,6 +134,9 @@
     "page_subtitle": "Bizniń ómirimiz súretlerde"
   },
   "common": {
-    "toggle_menu": "Menyunu ashıw"
+    "toggle_menu": "Menyunu ashıw",
+    "share": "Úlesiw",
+    "copy_link": "Siltemeni nusqalaw",
+    "copied": "Nusqalandı!"
   }
 }

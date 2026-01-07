@@ -1,4 +1,6 @@
-import { Container } from '@/components/ui'
+import { ShareActions } from '@/components/shared/share-actions'
+import { Container, Skeleton } from '@/components/ui'
+import SEO from '@/lib/seo/SEO'
 import { formatDate } from '@/lib/utils'
 import type { INews } from '@/services/news'
 import { Link } from '@tanstack/react-router'
@@ -7,7 +9,7 @@ import { ArrowRight, Calendar, ChevronLeft } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 interface NewsDetailProps {
-  data: INews
+  data?: INews
 }
 
 export const NewsDetail = ({ data }: NewsDetailProps) => {
@@ -15,6 +17,10 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
 
   return (
     <article className="bg-white pb-20 pt-10">
+      <SEO
+        title={data?.title || ''}
+        description={data?.content || data?.title}
+      />
       <Container>
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Main Content Area */}
@@ -28,8 +34,8 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
             </Link>
             <div className="relative aspect-video w-full overflow-hidden rounded-[40px] shadow-2xl shadow-blue-900/10 mb-12">
               <img
-                src={data.image}
-                alt={data.title}
+                src={data?.image}
+                alt={data?.title}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -37,16 +43,16 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
             <div className="space-y-6 mb-10">
               <div className="flex flex-wrap gap-4 items-center">
                 <span className="bg-blue-600/10 text-blue-600 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em]">
-                  {data.category?.name}
+                  {data?.category?.name}
                 </span>
                 <div className="flex items-center text-slate-400 text-sm font-medium">
                   <Calendar className="w-4 h-4 mr-2 opacity-50" />
-                  {formatDate(data.created_at)}
+                  {formatDate(data?.created_at || '')}
                 </div>
               </div>
 
               <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.1] tracking-tight">
-                {data.title}
+                {data?.title}
               </h1>
             </div>
 
@@ -56,8 +62,13 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
               </p> */}
 
               <div className="space-y-6 text-slate-700 leading-relaxed text-lg">
-                {parser(data.content || '')}
+                {parser(data?.content || '')}
               </div>
+            </div>
+
+            {/* Share Section */}
+            <div className="mt-16 pt-8 border-t border-slate-100">
+              <ShareActions title={data?.title || ''} />
             </div>
 
             {/* Tags */}
@@ -79,7 +90,7 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
               </div>
 
               <div className="space-y-8">
-                {data.related_news?.map((item) => (
+                {data?.related_news?.map((item) => (
                   <Link
                     key={item.id}
                     to="/news/$id"
@@ -115,6 +126,67 @@ export const NewsDetail = ({ data }: NewsDetailProps) => {
               >
                 {t('news.all')}
               </Link>
+            </div>
+          </aside>
+        </div>
+      </Container>
+    </article>
+  )
+}
+
+export const NewsDetailSkeleton = () => {
+  return (
+    <article className="bg-white pb-20 pt-10">
+      <Container>
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Main Content Skeleton */}
+          <div className="flex-[2] min-w-0">
+            <div className="mb-8">
+              <Skeleton className="h-5 w-24" />
+            </div>
+
+            <Skeleton className="relative aspect-video w-full rounded-[40px] mb-12" />
+
+            <div className="space-y-6 mb-10">
+              <div className="flex items-center gap-4">
+                <Skeleton className="h-6 w-24 rounded-full" />
+                <Skeleton className="h-4 w-32" />
+              </div>
+
+              <div className="space-y-4">
+                <Skeleton className="h-10 w-full" />
+                <Skeleton className="h-10 w-3/4" />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+            </div>
+          </div>
+
+          {/* Sidebar Skeleton */}
+          <aside className="flex-1 lg:max-w-[400px] space-y-12">
+            <div className="bg-slate-50/50 rounded-3xl p-8 sticky top-24">
+              <div className="flex items-center justify-between mb-8">
+                <Skeleton className="h-7 w-40" />
+                <Skeleton className="h-5 w-5 rounded-full" />
+              </div>
+
+              <div className="space-y-8">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex gap-4 items-start">
+                    <Skeleton className="w-24 h-24 rounded-2xl" />
+                    <div className="flex-1 space-y-2">
+                      <Skeleton className="h-3 w-16" />
+                      <Skeleton className="h-4 w-full" />
+                      <Skeleton className="h-4 w-3/4" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </aside>
         </div>

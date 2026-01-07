@@ -1,3 +1,4 @@
+import { Skeleton } from '@/components/ui'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
@@ -68,6 +69,32 @@ export const ClubCard = ({ club, className }: Props) => {
               <span className="text-sm font-bold text-slate-700">
                 {club.days.join(', ')}
               </span>
+            </div>
+          </div>
+        </div>
+      </CardHeader>
+    </Card>
+  )
+}
+
+export const ClubCardSkeleton = ({ className }: { className?: string }) => {
+  return (
+    <Card
+      className={cn(
+        'group pt-0 pb-0 overflow-hidden border-none shadow-sm bg-white rounded-3xl flex flex-col',
+        className,
+      )}
+    >
+      <Skeleton className="relative aspect-video w-full" />
+
+      <CardHeader className="p-6 flex-1 flex flex-col">
+        <Skeleton className="h-7 w-full mb-4" />
+        <div className="mt-auto w-full">
+          <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+            <Skeleton className="w-10 h-10 rounded-xl" />
+            <div className="space-y-2">
+              <Skeleton className="h-3 w-16" />
+              <Skeleton className="h-4 w-24" />
             </div>
           </div>
         </div>

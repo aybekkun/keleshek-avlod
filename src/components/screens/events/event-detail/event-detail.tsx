@@ -1,13 +1,15 @@
-import { Button, Container } from '@/components/ui'
-import { formatDate } from '@/lib/utils'
+import { ShareActions } from '@/components/shared/share-actions'
+import { Container, Skeleton } from '@/components/ui'
+import SEO from '@/lib/seo/SEO'
+import { formatDate, formatTime } from '@/lib/utils'
 import { type IEvent } from '@/services/events'
 import { Link } from '@tanstack/react-router'
 import parse from 'html-react-parser'
-import { Calendar, ChevronLeft, Clock, MapPin, Share2 } from 'lucide-react'
+import { Calendar, ChevronLeft, Clock, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 interface EventDetailProps {
-  data: IEvent
+  data?: IEvent
 }
 
 export const EventDetail = ({ data }: EventDetailProps) => {
@@ -15,6 +17,10 @@ export const EventDetail = ({ data }: EventDetailProps) => {
 
   return (
     <article className="bg-white pb-20 pt-10">
+      <SEO
+        title={data?.title || ''}
+        description={data?.content || data?.title}
+      />
       <Container>
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Main Content */}
@@ -29,37 +35,24 @@ export const EventDetail = ({ data }: EventDetailProps) => {
             <div className="space-y-6 mb-10">
               <div className="flex flex-wrap gap-4 items-center">
                 <span className="inline-flex items-center px-4 py-1.5 bg-primary/10 text-primary text-xs font-bold rounded-full border border-primary/5 uppercase tracking-widest">
-                  {data.sub_title}
+                  {data?.sub_title}
                 </span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
-                {data.title}
+                {data?.title}
               </h1>
             </div>
 
             <div className="max-w-none prose prose-lg prose-slate">
               <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
-                {parse(data.content || '')}
+                {parse(data?.content || '')}
               </div>
             </div>
 
             {/* Share Section */}
-            <div className="mt-16 pt-8 border-t border-slate-100 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-                  {t('events.share')}
-                </span>
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full"
-                  >
-                    <Share2 className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
+            <div className="mt-16 pt-8 border-t border-slate-100">
+              <ShareActions title={data?.title || ''} />
             </div>
           </div>
 
@@ -81,7 +74,7 @@ export const EventDetail = ({ data }: EventDetailProps) => {
                         {t('events.date')}
                       </p>
                       <p className="font-bold text-slate-900">
-                        {formatDate(data.date)}
+                        {formatDate(data?.date || '')}
                       </p>
                     </div>
                   </div>
@@ -95,7 +88,8 @@ export const EventDetail = ({ data }: EventDetailProps) => {
                         {t('events.time')}
                       </p>
                       <p className="font-bold text-slate-900">
-                        {data.from_time} - {data.to_time}
+                        {formatTime(data?.from_time || '')} -{' '}
+                        {formatTime(data?.to_time || '')}
                       </p>
                     </div>
                   </div>
@@ -109,10 +103,63 @@ export const EventDetail = ({ data }: EventDetailProps) => {
                         {t('events.location')}
                       </p>
                       <p className="font-bold text-slate-900">
-                        {data.location}
+                        {data?.location}
                       </p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </Container>
+    </article>
+  )
+}
+
+export const EventDetailSkeleton = () => {
+  return (
+    <article className="bg-white pb-20 pt-10">
+      <Container>
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Main Content Skeleton */}
+          <div className="flex-2 min-w-0">
+            <div className="mb-8">
+              <Skeleton className="h-5 w-24" />
+            </div>
+            <div className="space-y-6 mb-10">
+              <Skeleton className="h-6 w-32 rounded-full" />
+              <div className="space-y-4">
+                <Skeleton className="h-12 w-full md:w-3/4" />
+                <Skeleton className="h-12 w-1/2" />
+              </div>
+            </div>
+            <div className="space-y-4">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-3/4" />
+            </div>
+          </div>
+
+          {/* Sidebar Skeleton */}
+          <aside className="flex-1 lg:max-w-100">
+            <div className="bg-slate-50/50 rounded-4xl p-8 space-y-8 border border-slate-100 sticky top-24">
+              <div className="space-y-6">
+                <Skeleton className="h-7 w-40" />
+                <div className="space-y-4">
+                  {[1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100"
+                    >
+                      <Skeleton className="w-12 h-12 rounded-xl" />
+                      <div className="space-y-2">
+                        <Skeleton className="h-3 w-16" />
+                        <Skeleton className="h-4 w-32" />
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

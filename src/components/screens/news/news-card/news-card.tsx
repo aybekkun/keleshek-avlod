@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui'
+import { Button, Skeleton } from '@/components/ui'
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn, formatDate } from '@/lib/utils'
 import type { INews } from '@/services/news'
@@ -72,6 +72,38 @@ export const NewsCard = ({ data, className = `` }: Props) => {
               <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
             </Link>
           </Button>
+        </div>
+      </CardHeader>
+    </Card>
+  )
+}
+
+export const NewsCardSkeleton = ({
+  className = ``,
+}: {
+  className?: string
+}) => {
+  return (
+    <Card
+      className={cn(
+        'group overflow-hidden pt-0 border-none shadow-sm bg-white rounded-3xl',
+        className,
+      )}
+    >
+      <Skeleton className="relative aspect-16/10 w-full" />
+
+      <CardHeader className="p-6">
+        <div className="flex items-center gap-4 mb-4">
+          <Skeleton className="h-4 w-24" />
+        </div>
+
+        <div className="space-y-3 mb-6">
+          <Skeleton className="h-6 w-full" />
+          <Skeleton className="h-6 w-3/4" />
+        </div>
+
+        <div className="pt-2 border-t border-slate-50">
+          <Skeleton className="h-4 w-20" />
         </div>
       </CardHeader>
     </Card>

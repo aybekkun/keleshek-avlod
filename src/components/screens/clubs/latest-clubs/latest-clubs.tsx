@@ -12,7 +12,7 @@ type Props = {
 
 export const LatestClubsSection = ({ className = `` }: Props) => {
   const { t } = useTranslation()
-  const { data } = useClubs({ limit: 3 })
+  const { data, isLoading } = useClubs({ limit: 3 })
 
   return (
     <section className={cn('py-24 relative overflow-hidden', className)}>
@@ -24,7 +24,12 @@ export const LatestClubsSection = ({ className = `` }: Props) => {
         />
 
         {/* We only show the first 3 clubs on the home page */}
-        <ClubsList data={data?.data || []} className="lg:grid-cols-3" />
+        <ClubsList
+          data={data?.data || []}
+          isLoading={isLoading}
+          limit={3}
+          className="lg:grid-cols-3"
+        />
 
         <Explore
           title={t('sections.latest_clubs.explore_title')}

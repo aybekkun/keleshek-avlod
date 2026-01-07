@@ -134,6 +134,9 @@
     "page_subtitle": "Bizning hayotimiz suratlarda"
   },
   "common": {
-    "toggle_menu": "Menyuni ochish"
+    "toggle_menu": "Menyuni ochish",
+    "share": "Ulashish",
+    "copy_link": "Havolani nusxalash",
+    "copied": "Nusxalandi!"
   }
 }

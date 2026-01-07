@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/container'
 import { cn } from '@/lib/utils'
 import { useEvents } from '@/services/events'
 import { useTranslation } from 'react-i18next'
-import { EventCard } from '../event-card/event-card'
+import { EventsList } from '../events-list/events-list'
 
 type Props = {
   className?: string
@@ -12,7 +12,7 @@ type Props = {
 
 export const LatestEventsSection = ({ className = `` }: Props) => {
   const { t } = useTranslation()
-  const { data } = useEvents({ limit: 3 })
+  const { data, isLoading } = useEvents({ limit: 3 })
   return (
     <section
       className={cn('py-24 bg-primary/5 relative overflow-hidden', className)}
@@ -30,11 +30,12 @@ export const LatestEventsSection = ({ className = `` }: Props) => {
           className="text-center"
         />
 
-        <div className="space-y-6 max-w-6xl mx-auto">
-          {data?.data.map((event, index) => (
-            <EventCard key={event.id} event={event} index={index} />
-          ))}
-        </div>
+        <EventsList
+          data={data?.data || []}
+          isLoading={isLoading}
+          limit={3}
+          className="max-w-6xl mx-auto"
+        />
 
         <Explore
           title={t('sections.latest_events.explore_title')}

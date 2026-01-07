@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui'
-import { cn, formatDate } from '@/lib/utils'
+import { Button, Skeleton } from '@/components/ui'
+import { cn, formatDate, formatTime } from '@/lib/utils'
 import { Link } from '@tanstack/react-router'
 import { Clock, MapPin } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -39,7 +39,7 @@ export const EventCard = ({ event, index, className }: Props) => {
           <div className="flex items-center gap-2 text-slate-400 mt-2">
             <Clock className="w-3.5 h-3.5" />
             <span className="text-xs font-semibold tabular-nums">
-              {event.from_time} - {event.to_time}
+              {formatTime(event.from_time)} - {formatTime(event.to_time)}
             </span>
           </div>
         </div>
@@ -78,6 +78,35 @@ export const EventCard = ({ event, index, className }: Props) => {
           </Link>
         </Button>
       </div>
+    </div>
+  )
+}
+
+export const EventCardSkeleton = ({ className }: { className?: string }) => {
+  return (
+    <div
+      className={cn(
+        'bg-white rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-8 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)]',
+        className,
+      )}
+    >
+      <div className="flex flex-col items-center md:items-start min-w-35">
+        <Skeleton className="h-12 w-16 mb-2" />
+        <Skeleton className="h-4 w-24 mb-2" />
+        <Skeleton className="h-3 w-20" />
+      </div>
+
+      <div className="hidden md:block w-px h-16 bg-slate-100" />
+
+      <div className="flex-1 space-y-3 w-full">
+        <Skeleton className="h-8 w-full md:w-3/4" />
+        <div className="flex gap-4">
+          <Skeleton className="h-6 w-24 rounded-full" />
+          <Skeleton className="h-4 w-32" />
+        </div>
+      </div>
+
+      <Skeleton className="h-14 w-full md:w-40 rounded-2xl" />
     </div>
   )
 }

@@ -134,6 +134,9 @@
         "page_subtitle": "Our life in photos"
     },
     "common": {
-        "toggle_menu": "Toggle menu"
+        "toggle_menu": "Toggle menu",
+        "share": "Share",
+        "copy_link": "Copy link",
+        "copied": "Copied!"
     }
 }

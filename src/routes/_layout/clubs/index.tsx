@@ -11,7 +11,7 @@ export const Route = createFileRoute('/_layout/clubs/')({
 
 function RouteComponent() {
   const { t } = useTranslation()
-  const { data } = useClubs({})
+  const { data, isLoading } = useClubs({})
   return (
     <>
       <PageHeader
@@ -19,7 +19,11 @@ function RouteComponent() {
         subtitle={t('clubs.page_subtitle')}
       />
       <Container className="py-20">
-        <ClubsList className="mb-16" data={data?.data || []} />
+        <ClubsList
+          className="mb-16"
+          data={data?.data || []}
+          isLoading={isLoading}
+        />
       </Container>
     </>
   )
