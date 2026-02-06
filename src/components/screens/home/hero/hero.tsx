@@ -91,7 +91,7 @@ export const Hero = ({ className = `` }: Props) => {
           <div className="grid grid-cols-3 gap-6 mt-16 animate-fade-in-up animation-delay-400">
             <div className="text-center sm:text-left">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-                20296+
+                20000+
               </div>
               <div className="text-sm md:text-base text-blue-200">
                 {t('hero.stats.students')}
@@ -99,7 +99,7 @@ export const Hero = ({ className = `` }: Props) => {
             </div>
             <div className="text-center sm:text-left">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">
-                774+
+                770+
               </div>
               <div className="text-sm md:text-base text-blue-200">
                 {t('hero.stats.teachers')}
