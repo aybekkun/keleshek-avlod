@@ -63,6 +63,70 @@ export const ContactSection = () => {
                   </p>
                 </div>
               </div>
+
+              {/* Social Networks */}
+              <div className="pt-6 flex gap-4">
+                <a
+                  href="https://t.me/QQRKeleshekorayi"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+                  title="Telegram"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-6 h-6"
+                  >
+                    <path d="m22 2-7 20-4-9-9-4Z" />
+                    <path d="M22 2 11 13" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/keleshek_orayi"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-pink-600 hover:bg-pink-600 hover:text-white transition-all shadow-sm"
+                  title="Instagram"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-6 h-6"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.facebook.com/qqbabm?mibextid=wwXIfr&rdid=0exmipV2ZZNRirnC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1KCHWRnw1w%2F%3Fmibextid%3DwwXIfr#"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-800 hover:bg-blue-800 hover:text-white transition-all shadow-sm"
+                  title="Facebook"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-6 h-6"
+                  >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             {/* Map Placeholder/Iframe */}

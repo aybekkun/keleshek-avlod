@@ -74,7 +74,7 @@
     "stats": {
       "students": "Oqıwshılar",
       "teachers": "Muǵallimler",
-      "programs": "Dastúrler"
+      "programs": "Tógerekler"
     }
   },
   "contact": {
@@ -116,14 +116,14 @@
     "back": "Waqıyalarǵa qaytıw",
     "share": "Ulasıw",
     "details": "Waqıya detalları",
-    "date": "Sana",
-    "time": "Vaqıt",
+    "date": "Sane",
+    "time": "Waqıt",
     "location": "Mánzil"
   },
   "news": {
     "page_title": "Jańalıqlar",
     "page_subtitle": "Sońǵı waqıyalar",
-    "read_more": "Batafsil oqıw",
+    "read_more": "Tolıq oqıw",
     "not_found": "Jańalıq tabılmadı",
     "back": "Jańalıqlarǵa qaytıw",
     "related": "Sonday-aq oqıń",

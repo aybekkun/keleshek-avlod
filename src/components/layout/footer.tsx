@@ -1,6 +1,6 @@
 import { useContact } from '@/services/contacts'
 import { Link } from '@tanstack/react-router'
-import { Facebook, Instagram, Youtube } from 'lucide-react'
+import { Facebook, Instagram } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Container } from '../ui/container'
 import { Logo } from './logo'
@@ -20,22 +20,39 @@ export const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://t.me/QQRKeleshekorayi"
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 bg-slate-50 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5"
+                >
+                  <path d="m22 2-7 20-4-9-9-4Z" />
+                  <path d="M22 2 11 13" />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/keleshek_orayi"
+                target="_blank"
+                rel="noreferrer"
                 className="p-2 bg-slate-50 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/qqbabm?mibextid=wwXIfr&rdid=0exmipV2ZZNRirnC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1KCHWRnw1w%2F%3Fmibextid%3DwwXIfr#"
+                target="_blank"
+                rel="noreferrer"
                 className="p-2 bg-slate-50 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-slate-50 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-              >
-                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>
